@@ -25,11 +25,11 @@ If you can initiate an instance of the class by calling one of two contructors:
 
 If you do have the bearer token (remember this is only valid for 1 hour):
 
-_patrons = new PatronApi(new SierraRestClient(BaseUrl, Token));
+_patron = new PatronApi(new SierraRestClient(BaseUrl, Token));
 
 If you don't have the bearer token - this will always get a fresh token but it does mean you have two requests for every call:
 
-_patrons = new PatronsApi(new SierraRestClient(baseUrl, clientKey, clientSecret)));
+_patron = new PatronsApi(new SierraRestClient(baseUrl, clientKey, clientSecret)));
 
         public SierraRestClient(string baseUrl, string accessToken)
         {
