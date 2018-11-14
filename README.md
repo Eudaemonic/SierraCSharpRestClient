@@ -1,5 +1,5 @@
 # SierraCSharpRestClient
-A strongly typed interface for Innovative's Sierra RESTful interface.
+A strongly typed interface for Innovative's Sierra RESTful interface in C# for .Net.
 
 The Sierra REST API provides access to the Sierra library platform database. It is intended for the use of Innovative customers and their authorized third-party associates, as well as Innovative’s commercial partners.
 
