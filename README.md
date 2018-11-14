@@ -24,11 +24,6 @@ If you don't have the bearer token - this will alway get a fresh token but it do
 
 _patrons = new PatronsApi(new SierraRestClient(baseUrl, clientKey, clientSecret)));
 
- /// <summary>
-        /// The access token must not have Bearer before the token
-        /// </summary>
-        /// <param name="baseUrl"></param>
-        /// <param name="accessToken"></param>
         public SierraRestClient(string baseUrl, string accessToken)
         {
             _baseUrl = baseUrl;
