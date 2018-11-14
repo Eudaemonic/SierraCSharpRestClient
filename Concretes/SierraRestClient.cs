@@ -28,6 +28,12 @@ namespace SierraCSharpRestClient.Concretes
 
         }
 
+        /// <summary>
+        /// To retrieve an Access Token 
+        /// </summary>
+        /// <param name="baseUrl"></param>
+        /// <param name="clientKey"></param>
+        /// <param name="clientSecret"></param>
         public SierraRestClient(string baseUrl, string clientKey, string clientSecret)
         {
             _baseUrl = baseUrl;

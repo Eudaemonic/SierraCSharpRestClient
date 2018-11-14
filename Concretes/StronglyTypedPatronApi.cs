@@ -4,17 +4,19 @@ using SierraCSharpRestClient.Enums;
 using SierraCSharpRestClient.Interfaces;
 using SierraCSharpRestClient.Models;
 
-
 namespace SierraCSharpRestClient.Concretes
 {
     public class StronglyTypedPatronsApi : IStronglyTypedPatronsApi
     {
         private readonly PatronsApi _patrons;
 
+        private readonly string _defaultFields;
+
+
         public StronglyTypedPatronsApi(ISierraRestClient sierraRestClient)
         {
-            _patrons =  new PatronsApi(sierraRestClient);
-      
+            _patrons = new PatronsApi(sierraRestClient);
+            _defaultFields = GetResponseFieldsAsString();
         }
 
         public bool CheckIfBarcodeExists(string barcode)
@@ -27,22 +29,22 @@ namespace SierraCSharpRestClient.Concretes
             var json = JsonConvert.SerializeObject(patron);
 
             return _patrons.Create(json);
-
         }
 
-        public Patron Get(int id, string fields)
+        /// <summary>
+        /// Returns a Patron object from record Id.
+        /// The default fields are taken from the public properties of the class
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="fields"></param>
+        /// <returns></returns>
+        public Patron Get(int id, string fields = null)
         {
             var result = new Patron();
-       
-                var patrons = JsonConvert.DeserializeObject<Models.Patrons>(_patrons.Get(id, fields));
 
-                if (patrons.total > 0)
-                {
-                    result = patrons.entries.FirstOrDefault();
-                }
+            if (fields == null) fields = _defaultFields;
 
-
-            return result;
+            return JsonConvert.DeserializeObject<Patron>(_patrons.Get(id, fields)); ;
         }
 
         public void Update(Patron patron, int id)
@@ -50,11 +52,10 @@ namespace SierraCSharpRestClient.Concretes
             var json = JsonConvert.SerializeObject(patron);
 
             _patrons.Update(json, id);
-    
         }
 
         /// <summary>
-        /// Get pcode{0} etc
+        ///  Get pcode{0} etc
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
@@ -65,18 +66,25 @@ namespace SierraCSharpRestClient.Concretes
 
 
         /// <summary>
-        /// Method accepts the varField tag and returns a single record. 
-        /// 
+        ///     Method accepts the varField tag and returns a single record.
         /// </summary>
         /// <param name="varFieldTag"></param>
         /// <param name="query"></param>
         /// <returns></returns>
         public Patron GetPatronByVarField(char varFieldTag, string query)
         {
-            return JsonConvert.DeserializeObject<Models.Patron>( _patrons.GetPatronByVarField(varFieldTag, query));
-
+            return JsonConvert.DeserializeObject<Patron>(_patrons.GetPatronByVarField(varFieldTag, query));
         }
 
+        #region helpers
 
+        private string GetResponseFieldsAsString()
+        {
+            var names = typeof(Patron).GetProperties().Select(p => p.Name).ToArray();
+
+            return string.Join(",", names);
+        }
+
+        #endregion
     }
 }

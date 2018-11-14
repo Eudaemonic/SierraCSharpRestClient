@@ -7,7 +7,7 @@ namespace SierraCSharpRestClient.Interfaces
     {
         bool CheckIfBarcodeExists(string barcode);
         string Create(Patron patron);
-        Patron Get(int id, string fields);
+        Patron Get(int id, string fields = null);
         void Update(Patron patron, int id);
 
         /// <summary>
