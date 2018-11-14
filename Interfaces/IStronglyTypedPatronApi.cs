@@ -25,7 +25,10 @@ namespace SierraCSharpRestClient.Interfaces
         /// <param name="fields"></param>
         /// <returns></returns>
         Patron Get(int id, string fields = null);
-        void Update(Patron patron, int id);
+
+
+
+        void Update(Patron patron, int? id);
 
         /// <summary>
         /// Get pcode{0} etc

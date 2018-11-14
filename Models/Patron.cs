@@ -10,19 +10,20 @@ namespace SierraCSharpRestClient.Models
     {
 
 
-
-        public int id { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public int? id { get; set; }
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         [DisplayName("Email")]
         public List<string> emails { get; set; }
 
-
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         [DisplayName("Name")]
         public List<string> names { get; set; }
 
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         [DisplayName("Patron Type")]
-        public int patronType { get; set; }
+        public int? patronType { get; set; }
 
 
         [DisplayName("Address")]
@@ -33,9 +34,11 @@ namespace SierraCSharpRestClient.Models
         [DisplayName("Barcode")]
         public List<string> barcodes { get; set; }
 
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         [DisplayName("Expiry Date")]
         public string expirationDate { get; set; }
 
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         [DisplayName("Patron Codes")]
         public PatronCodes patronCodes { get; set; }
 

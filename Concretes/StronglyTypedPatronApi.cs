@@ -47,7 +47,7 @@ namespace SierraCSharpRestClient.Concretes
             return JsonConvert.DeserializeObject<Patron>(_patron.Get(id, fields)); ;
         }
 
-        public void Update(Patron patron, int id)
+        public void Update(Patron patron, int? id)
         {
             var json = JsonConvert.SerializeObject(patron);
 

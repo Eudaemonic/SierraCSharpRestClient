@@ -88,7 +88,7 @@ namespace SierraCSharpRestClient.Concretes
         /// <param name="id"></param>
         /// <returns>
         /// </returns>
-        public void Update(string patron, int id)
+        public void Update(string patron, int? id)
         {
 
             var request = _sierraRestClient.Execute(Branch.patrons, "/" + id.ToString(), Method.PUT);

@@ -37,7 +37,7 @@ namespace SierraCSharpRestClient.Interfaces
         /// <param name="id"></param>
         /// <returns>
         /// </returns>
-        void Update(string patron, int id);
+        void Update(string patron, int? id);
 
         /// <summary>
         /// Returns the properties of patron objects from the submitted array of ids
