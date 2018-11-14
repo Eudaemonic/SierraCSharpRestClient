@@ -55,18 +55,18 @@
   <ItemGroup>
     <Compile Include="Concretes\BibsApi.cs" />
     <Compile Include="Enums\Indexes.cs" />
-    <Compile Include="Interfaces\IStronglyTypedPatronsApi.cs" />
+    <Compile Include="Interfaces\IStronglyTypedPatronApi.cs" />
     <Compile Include="Enums\PatronCode.cs" />
     <Compile Include="Models\AuthToken.cs" />
     <Compile Include="Extensions\EnumExtension.cs" />
     <Compile Include="Extensions\ExtensionsString.cs" />
-    <Compile Include="Interfaces\IPatronsApi.cs" />
+    <Compile Include="Interfaces\IPatronApi.cs" />
     <Compile Include="Models\BibModels.cs" />
     <Compile Include="Models\Patron.cs" />
     <Compile Include="Models\PatronMetaData.cs" />
     <Compile Include="Models\Patrons.cs" />
     <Compile Include="Concretes\StronglyTypedPatronApi.cs" />
-    <Compile Include="Concretes\PatronsApi.cs" />
+    <Compile Include="Concretes\PatronApi.cs" />
     <Compile Include="Enums\Branch.cs" />
     <Compile Include="Interfaces\ISierraRestClient.cs" />
     <Compile Include="Enums\ResponseField.cs" />
@@ -78,7 +78,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Endpoints\" />
     <Folder Include="Typed\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

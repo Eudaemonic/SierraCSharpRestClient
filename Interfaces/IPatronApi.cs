@@ -3,7 +3,7 @@ using SierraCSharpRestClient.Models;
 
 namespace SierraCSharpRestClient.Interfaces
 {
-    public interface IPatronsApi
+    public interface IPatronApi
     {
         /// <summary>
         /// Returns a true if barcode is already in the system

@@ -18,7 +18,7 @@ If you can initiate an instance of the class by calling one of two contructors:
 
 If you do have the bearer token (remember this is only valid for 1 hour):
 
-_patrons = new PatronsApi(new SierraRestClient(BaseUrl, Token));
+_patrons = new PatronApi(new SierraRestClient(BaseUrl, Token));
 
 If you don't have the bearer token - this will always get a fresh token but it does mean you have two requests for every call:
 
@@ -45,7 +45,15 @@ Once you have created an instance of IPatron interface using the following:
 
 _patrons = new PatronsApi(new SierraRestClient(baseUrl, clientKey, clientSecret)));
 
-You can call somethin list
+You can call something like:
+
+		var patron = new StronglyTypedPatronApi(new SierraRestClient(BaseUrl, ClientKey, ClientSecret));
+
+		var x = _patrons.Get(1220539);
+
+		Assert.AreEqual(x.barcodes.FirstOrDefault(),"0197722585");
+
+
 
 
 

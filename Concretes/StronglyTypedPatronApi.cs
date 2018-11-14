@@ -6,29 +6,29 @@ using SierraCSharpRestClient.Models;
 
 namespace SierraCSharpRestClient.Concretes
 {
-    public class StronglyTypedPatronsApi : IStronglyTypedPatronsApi
+    public class StronglyTypedPatronApi : IStronglyTypedPatronApi
     {
-        private readonly PatronsApi _patrons;
+        private readonly PatronApi _patron;
 
         private readonly string _defaultFields;
 
 
-        public StronglyTypedPatronsApi(ISierraRestClient sierraRestClient)
+        public StronglyTypedPatronApi(ISierraRestClient sierraRestClient)
         {
-            _patrons = new PatronsApi(sierraRestClient);
+            _patron = new PatronApi(sierraRestClient);
             _defaultFields = GetResponseFieldsAsString();
         }
 
         public bool CheckIfBarcodeExists(string barcode)
         {
-            return _patrons.CheckIfBarcodeExists(barcode);
+            return _patron.CheckIfBarcodeExists(barcode);
         }
 
         public string Create(Patron patron)
         {
             var json = JsonConvert.SerializeObject(patron);
 
-            return _patrons.Create(json);
+            return _patron.Create(json);
         }
 
         /// <summary>
@@ -44,14 +44,14 @@ namespace SierraCSharpRestClient.Concretes
 
             if (fields == null) fields = _defaultFields;
 
-            return JsonConvert.DeserializeObject<Patron>(_patrons.Get(id, fields)); ;
+            return JsonConvert.DeserializeObject<Patron>(_patron.Get(id, fields)); ;
         }
 
         public void Update(Patron patron, int id)
         {
             var json = JsonConvert.SerializeObject(patron);
 
-            _patrons.Update(json, id);
+            _patron.Update(json, id);
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace SierraCSharpRestClient.Concretes
         /// <returns></returns>
         public PatronMetaData GetPatronMetaData(PatronCode code)
         {
-            return _patrons.GetPatronMetaData(code);
+            return _patron.GetPatronMetaData(code);
         }
 
 
@@ -73,7 +73,7 @@ namespace SierraCSharpRestClient.Concretes
         /// <returns></returns>
         public Patron GetPatronByVarField(char varFieldTag, string query)
         {
-            return JsonConvert.DeserializeObject<Patron>(_patrons.GetPatronByVarField(varFieldTag, query));
+            return JsonConvert.DeserializeObject<Patron>(_patron.GetPatronByVarField(varFieldTag, query));
         }
 
         #region helpers

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using RestSharp;
 using SierraCSharpRestClient.Interfaces;
@@ -7,7 +8,11 @@ namespace SierraCSharpRestClient.Concretes
 {
 
     /// <summary>
-    /// Gets the SierraRestClient
+    /// Gets the SierraRestClient in two different flavours
+    /// public SierraRestClient(string baseUrl, string accessToken) will return a rest client
+    /// with only one request to the server - but your token will only last 60 minutes
+    /// public SierraRestClient(string baseUrl, string clientKey, string clientSecret) will always return
+    /// a valid client as it makes a request for a new client as part of the instantiation. 
     /// </summary>
     public sealed class SierraRestClient : ISierraRestClient
     {
@@ -18,6 +23,7 @@ namespace SierraCSharpRestClient.Concretes
 
         /// <summary>
         /// The access token must not have Bearer before the token
+        /// base url example = "https://{your library}/iii/sierra-api/v5/";
         /// </summary>
         /// <param name="baseUrl"></param>
         /// <param name="accessToken"></param>
@@ -29,7 +35,8 @@ namespace SierraCSharpRestClient.Concretes
         }
 
         /// <summary>
-        /// To retrieve an Access Token 
+        /// To retrieve an Access Token
+        /// base url example = "https://{your library}/iii/sierra-api/v5/";
         /// </summary>
         /// <param name="baseUrl"></param>
         /// <param name="clientKey"></param>
@@ -44,14 +51,20 @@ namespace SierraCSharpRestClient.Concretes
         }
 
 
-
+        /// <summary>
+        /// Our dependency on RESTSharp
+        /// </summary>
         public RestClient Client
         {
             get => new RestClient(_baseUrl);
             set => throw new NotImplementedException();
         }
 
-       
+        /// <summary>
+        /// Retrieves an access token which you can then use with the
+        ///  public SierraRestClient(string baseUrl, string accessToken) constructor - this results in one request
+        /// The access token is only valid for 60 minutes 
+        /// </summary>
         public string AccessToken
         {
             get
@@ -72,8 +85,18 @@ namespace SierraCSharpRestClient.Concretes
             set => throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// We are using RestSharp's method he to make the rest 
+        /// /// Branch.patrons, "/find", Method.GET
+        /// </summary>
+        /// <param name="branch"></param>
+        /// <param name="resource"></param>
+        /// <param name="method"></param>
+        /// <returns></returns>
         public RestRequest Execute(Branch branch, string resource, Method method)
         {
+            if (!resource.StartsWith("/"))
+                resource = "/" + resource;
        
             var request = new RestRequest(branch + resource, method);
 

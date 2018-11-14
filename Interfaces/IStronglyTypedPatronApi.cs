@@ -3,10 +3,27 @@ using SierraCSharpRestClient.Models;
 
 namespace SierraCSharpRestClient.Interfaces
 {
-    public interface IStronglyTypedPatronsApi
+    public interface IStronglyTypedPatronApi
     {
+
+
+        /// <param name="barcode"></param>
+        /// <returns></returns>
         bool CheckIfBarcodeExists(string barcode);
+
+        /// <summary>
+        /// Returns the id (as string) of a patron on creation
+        /// </summary>
+        /// <param name="patron"></param>
+        /// <returns></returns>
         string Create(Patron patron);
+
+        /// <summary>
+        /// Returns a Patron object with only the fields specified
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="fields"></param>
+        /// <returns></returns>
         Patron Get(int id, string fields = null);
         void Update(Patron patron, int id);
 

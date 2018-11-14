@@ -1,28 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using RestSharp;
-using SierraCSharpRestClient;
 using SierraCSharpRestClient.Enums;
 using SierraCSharpRestClient.Interfaces;
 using SierraCSharpRestClient.Models;
+using System;
+using System.Linq;
+using System.Net;
 
 namespace SierraCSharpRestClient.Concretes
 {
-    public class PatronsApi :  IPatronsApi
+    public class PatronApi :  IPatronApi
     {
         #region Initialiser
 
-
         private readonly ISierraRestClient _sierraRestClient;
 
-
-        public PatronsApi(ISierraRestClient sierraRestClient)
+        public PatronApi(ISierraRestClient sierraRestClient)
         {
             _sierraRestClient = sierraRestClient;
            
