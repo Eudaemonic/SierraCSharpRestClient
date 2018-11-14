@@ -50,13 +50,13 @@ _patron = new PatronsApi(new SierraRestClient(baseUrl, clientKey, clientSecret))
 
 Once you have created an instance of IPatron interface using the following:
 
-_patrons = new PatronsApi(new SierraRestClient(baseUrl, clientKey, clientSecret)));
+_patron = new PatronsApi(new SierraRestClient(baseUrl, clientKey, clientSecret)));
 
 You can call something like:
 
 		var patron = new StronglyTypedPatronApi(new SierraRestClient(BaseUrl, ClientKey, ClientSecret));
 
-		var x = _patrons.Get(1220539);
+		var x = _patron.Get(1220539);
 
 		Assert.AreEqual(x.barcodes.FirstOrDefault(),"0197722585");
 
