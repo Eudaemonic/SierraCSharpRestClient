@@ -20,7 +20,7 @@ If you do have the bearer token (remember this is only valid for 1 hour):
 
 _patrons = new PatronsApi(new SierraRestClient(BaseUrl, Token));
 
-If you don't have the bearer token - this will alway get a fresh token but it does mean you have two requests for every call:
+If you don't have the bearer token - this will always get a fresh token but it does mean you have two requests for every call:
 
 _patrons = new PatronsApi(new SierraRestClient(baseUrl, clientKey, clientSecret)));
 
@@ -39,7 +39,13 @@ _patrons = new PatronsApi(new SierraRestClient(baseUrl, clientKey, clientSecret)
             _accessToken = AccessToken;
       }
       
+# Patron Endpoint
 
+Once you have created an instance of IPatron interface using the following:
+
+_patrons = new PatronsApi(new SierraRestClient(baseUrl, clientKey, clientSecret)));
+
+You can call somethin list
 
 
 
