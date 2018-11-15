@@ -71,15 +71,15 @@
     <Compile Include="Interfaces\ISierraRestClient.cs" />
     <Compile Include="Enums\ResponseField.cs" />
     <Compile Include="Concretes\SierraRestClient.cs" />
+    <Compile Include="Models\PatronSubset\CheckOut.cs" />
+    <Compile Include="Models\PatronSubset\CheckOuts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Concretes\SierraRestRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Typed\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

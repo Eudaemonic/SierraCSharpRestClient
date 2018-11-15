@@ -6,6 +6,7 @@ using SierraCSharpRestClient.Models;
 using System;
 using System.Linq;
 using System.Net;
+using System.Web.UI.WebControls;
 
 namespace SierraCSharpRestClient.Concretes
 {
@@ -157,6 +158,26 @@ namespace SierraCSharpRestClient.Concretes
 
             IRestResponse response = _sierraRestClient.Client.Execute(request);
 
+
+            return response.Content;
+        }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="fields"></param>
+        /// <returns></returns>
+        public string GetCheckouts( int id, string fields)
+        {
+
+            var request = _sierraRestClient.Execute(Branch.patrons, $"/{id}/checkouts", Method.GET);
+
+            request.AddQueryParameter("fields", fields);
+
+            IRestResponse response = _sierraRestClient.Client.Execute(request);
 
             return response.Content;
         }

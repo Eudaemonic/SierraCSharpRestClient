@@ -65,5 +65,14 @@ namespace SierraCSharpRestClient.Interfaces
         /// <param name="query"></param>
         /// <returns></returns>
         string GetPatronByVarField(char varFieldTag, string query);
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="fields"></param>
+        /// <returns></returns>
+        string GetCheckouts(int id, string fields);
     }
 }

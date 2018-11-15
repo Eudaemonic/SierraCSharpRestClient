@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using SierraCSharpRestClient.Enums;
 using SierraCSharpRestClient.Interfaces;
 using SierraCSharpRestClient.Models;
+using SierraCSharpRestClient.Models.PatronSubset;
 
 namespace SierraCSharpRestClient.Concretes
 {
@@ -10,13 +11,11 @@ namespace SierraCSharpRestClient.Concretes
     {
         private readonly PatronApi _patron;
 
-        private readonly string _defaultFields;
-
 
         public StronglyTypedPatronApi(ISierraRestClient sierraRestClient)
         {
             _patron = new PatronApi(sierraRestClient);
-            _defaultFields = GetResponseFieldsAsString();
+    
         }
 
         public bool CheckIfBarcodeExists(string barcode)
@@ -42,7 +41,7 @@ namespace SierraCSharpRestClient.Concretes
         {
             var result = new Patron();
 
-            if (fields == null) fields = _defaultFields;
+            if (fields == null) fields = GetObjectFieldsAsString<Patron>();
 
             return JsonConvert.DeserializeObject<Patron>(_patron.Get(id, fields)); ;
         }
@@ -76,11 +75,25 @@ namespace SierraCSharpRestClient.Concretes
             return JsonConvert.DeserializeObject<Patron>(_patron.GetPatronByVarField(varFieldTag, query));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="fields"></param>
+        /// <returns></returns>
+        public CheckOuts GetCheckouts(int id, string fields = null)
+        {
+            if (fields == null) fields = GetObjectFieldsAsString<CheckOut>();
+
+            return JsonConvert.DeserializeObject<CheckOuts>(_patron.GetCheckouts(id, fields));
+        }
+
+
         #region helpers
 
-        private string GetResponseFieldsAsString()
+        private string GetObjectFieldsAsString<T>()
         {
-            var names = typeof(Patron).GetProperties().Select(p => p.Name).ToArray();
+            var names = typeof(T).GetProperties().Select(p => p.Name).ToArray();
 
             return string.Join(",", names);
         }
