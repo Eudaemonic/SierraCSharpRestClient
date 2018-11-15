@@ -56,9 +56,9 @@ You can call something like:
 
 		var patron = new StronglyTypedPatronApi(new SierraRestClient(BaseUrl, ClientKey, ClientSecret));
 
-		var x = _patron.Get(1220539);
+		var x = _patron.Get({Id});
 
-		Assert.AreEqual(x.barcodes.FirstOrDefault(),"0197722585");
+		Assert.AreEqual(x.barcodes.FirstOrDefault(),"{barcode}");
 
 
 
