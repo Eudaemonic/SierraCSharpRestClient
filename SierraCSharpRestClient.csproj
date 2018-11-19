@@ -54,6 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concretes\BibsApi.cs" />
+    <Compile Include="Interfaces\IStronglyTypedPatronApiAsync.cs" />
+    <Compile Include="Concretes\StronglyTypedPatronApiAsync.cs" />
+    <Compile Include="Interfaces\IPatronApiAsync.cs" />
+    <Compile Include="Concretes\PatronApiAsync.cs" />
     <Compile Include="Enums\Indexes.cs" />
     <Compile Include="Interfaces\IStronglyTypedPatronApi.cs" />
     <Compile Include="Enums\PatronCode.cs" />
