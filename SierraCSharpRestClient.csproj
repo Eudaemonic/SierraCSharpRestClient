@@ -63,7 +63,7 @@
     <Compile Include="Interfaces\IPatronApi.cs" />
     <Compile Include="Models\BibModels.cs" />
     <Compile Include="Models\Patron.cs" />
-    <Compile Include="Models\PatronMetaData.cs" />
+    <Compile Include="Models\PatronSubset\PatronMetaData.cs" />
     <Compile Include="Models\Patrons.cs" />
     <Compile Include="Concretes\StronglyTypedPatronApi.cs" />
     <Compile Include="Concretes\PatronApi.cs" />

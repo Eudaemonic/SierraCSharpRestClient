@@ -6,7 +6,6 @@ using SierraCSharpRestClient.Models;
 using System;
 using System.Linq;
 using System.Net;
-using System.Web.UI.WebControls;
 
 namespace SierraCSharpRestClient.Concretes
 {
@@ -72,14 +71,16 @@ namespace SierraCSharpRestClient.Concretes
         public string Get(int id, string fields)
         {
             var request = _sierraRestClient.Execute(Branch.patrons,@"/" + id, Method.GET);
-
-           
+          
             request.AddQueryParameter("fields", fields);
             // execute the request
             var x = _sierraRestClient.Client.Execute(request);
 
             return x.Content;
         }
+
+
+
 
         /// <summary>
         /// Update Patron values

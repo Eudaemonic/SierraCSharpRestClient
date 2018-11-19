@@ -18,11 +18,21 @@ namespace SierraCSharpRestClient.Concretes
     
         }
 
+        /// <summary>
+        /// Simple method to replicate the existing barcode function in Sierra.
+        /// </summary>
+        /// <param name="barcode"></param>
+        /// <returns></returns>
         public bool CheckIfBarcodeExists(string barcode)
         {
             return _patron.CheckIfBarcodeExists(barcode);
         }
 
+        /// <summary>
+        /// Creates a new patron and returns the Id. 
+        /// </summary>
+        /// <param name="patron"></param>
+        /// <returns></returns>
         public string Create(Patron patron)
         {
             var json = JsonConvert.SerializeObject(patron);
