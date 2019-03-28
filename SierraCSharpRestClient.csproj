@@ -54,6 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concretes\BibsApi.cs" />
+    <Compile Include="Concretes\BibsApiStronglyTyped.cs" />
+    <Compile Include="Interfaces\IBibsApiStronglyTyped.cs" />
+    <Compile Include="Interfaces\IBibsApi.cs" />
     <Compile Include="Interfaces\IStronglyTypedPatronApiAsync.cs" />
     <Compile Include="Concretes\StronglyTypedPatronApiAsync.cs" />
     <Compile Include="Interfaces\IPatronApiAsync.cs" />
@@ -66,6 +69,7 @@
     <Compile Include="Extensions\ExtensionsString.cs" />
     <Compile Include="Interfaces\IPatronApi.cs" />
     <Compile Include="Models\BibModels.cs" />
+    <Compile Include="Models\BibSubset\BibsModel.cs" />
     <Compile Include="Models\Patron.cs" />
     <Compile Include="Models\PatronSubset\PatronMetaData.cs" />
     <Compile Include="Models\Patrons.cs" />
