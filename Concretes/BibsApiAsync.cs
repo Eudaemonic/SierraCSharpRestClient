@@ -11,14 +11,14 @@ using SierraCSharpRestClient.Models.BibSubset;
 
 namespace SierraCSharpRestClient.Concretes
 {
-    public class BibsApi : IBibsApi
+    public class BibsApiAsync : IBibsApiAsync
     {
         #region Initialiser
 
 
         private readonly ISierraRestClient _sierraRestClient;
 
-        public BibsApi(ISierraRestClient sierraRestClient)
+        public BibsApiAsync(ISierraRestClient sierraRestClient)
         {
             _sierraRestClient = sierraRestClient;
 
@@ -36,7 +36,7 @@ namespace SierraCSharpRestClient.Concretes
         /// <param name="query"></param>
         /// <param name="limit"></param>
         /// <returns></returns>
-        public string Search(Indexes index, string query, string[] fields = null, int limit = 20)
+        public async Task<string> Search(Indexes index, string query, string[] fields = null, int limit = 20)
         {
             if (fields is null)
             {
@@ -53,15 +53,15 @@ namespace SierraCSharpRestClient.Concretes
             request.AddQueryParameter("limit", limit.ToString());
 
             // execute the request
-            var result = _sierraRestClient.Client.Execute(request).Content;
+            var result =  await _sierraRestClient.Client.ExecuteTaskAsync(request);
 
-            return result;
+            return result.Content;
 
         }
 
 
 
-        public string GetById( int id, string[] fields = null)
+        public async Task<string> GetById( int id, string[] fields = null)
         {
             if (fields == null || fields.Length == 0)
             {
@@ -71,7 +71,10 @@ namespace SierraCSharpRestClient.Concretes
 
             request.AddQueryParameter("fields", string.Join(",", fields));
             // execute the request
-            return _sierraRestClient.Client.Execute(request).Content;
+
+            var response = await _sierraRestClient.Client.ExecuteTaskAsync(request);
+
+            return response.Content;
 
         }
 

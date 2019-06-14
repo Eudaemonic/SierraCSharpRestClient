@@ -5,7 +5,17 @@ namespace SierraCSharpRestClient.Models.BibSubset
     public class BibsModel
     {
         public string id { get; set; }
+        public string title { get; set; }
+        public string author { get; set; }
+        public string publishYear { get; set; }
+        public List<Location> locations { get; set; }
         public List<VarField> varFields { get; set; }
+    }
+
+    public class Location
+    {
+        public string code { get; set; }
+        public string name { get; set; }
     }
 
     public class Subfield

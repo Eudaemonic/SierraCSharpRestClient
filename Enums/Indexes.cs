@@ -10,9 +10,12 @@ namespace SierraCSharpRestClient.Enums
         communitytag,
         isbn,
         other,
-        rightresultfull,
+        Rightresultexact,
+        Rightresultfull,
+        Rightresulttitle,
         subject,
         title,
+        none
 
 
 

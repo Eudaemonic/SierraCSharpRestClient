@@ -30,9 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\Visual Studio\Projects\MVC\shl.specialcollections\shl.specialcollections\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp, Version=106.2.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>packages\RestSharp.106.2.1\lib\net452\RestSharp.dll</HintPath>
@@ -53,8 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concretes\BibsApiAsync.cs" />
     <Compile Include="Concretes\BibsApi.cs" />
     <Compile Include="Concretes\BibsApiStronglyTyped.cs" />
+    <Compile Include="Concretes\BibsApiStronglyTypedAsync.cs" />
+    <Compile Include="Interfaces\IBibsApiStronglyTypedAsync.cs" />
+    <Compile Include="Interfaces\IBibsApiAsync.cs" />
     <Compile Include="Interfaces\IBibsApiStronglyTyped.cs" />
     <Compile Include="Interfaces\IBibsApi.cs" />
     <Compile Include="Interfaces\IStronglyTypedPatronApiAsync.cs" />
@@ -69,7 +72,9 @@
     <Compile Include="Extensions\ExtensionsString.cs" />
     <Compile Include="Interfaces\IPatronApi.cs" />
     <Compile Include="Models\BibModels.cs" />
+    <Compile Include="Models\BibSubset\BibSearchModel.cs" />
     <Compile Include="Models\BibSubset\BibsModel.cs" />
+    <Compile Include="Models\BibSubset\SimpleBib.cs" />
     <Compile Include="Models\Patron.cs" />
     <Compile Include="Models\PatronSubset\PatronMetaData.cs" />
     <Compile Include="Models\Patrons.cs" />

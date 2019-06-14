@@ -1,8 +1,9 @@
-﻿using SierraCSharpRestClient.Enums;
+﻿using System.Threading.Tasks;
+using SierraCSharpRestClient.Enums;
 
 namespace SierraCSharpRestClient.Interfaces
 {
-    public interface IBibsApi
+    public interface IBibsApiAsync
     {
         /// <summary>
         /// Returns a full patron objedt with all var fields. 
@@ -12,8 +13,8 @@ namespace SierraCSharpRestClient.Interfaces
         /// <param name="query"></param>
         /// <param name="limit"></param>
         /// <returns></returns>
-        string Search(Indexes index,  string query, string[] fields = null, int limit = 20);
+        Task <string> Search(Indexes index,  string query, string[] fields = null, int limit = 20);
 
-        string GetById(int id, string[] fields = null);
+        Task<string> GetById(int id, string[] fields = null);
     }
 }
