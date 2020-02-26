@@ -9,7 +9,7 @@ using System.Net;
 
 namespace SierraCSharpRestClient.Concretes
 {
-    public class PatronApi :  IPatronApi
+    public class PatronApi : IPatronApi
     {
         #region Initialiser
 
@@ -18,7 +18,7 @@ namespace SierraCSharpRestClient.Concretes
         public PatronApi(ISierraRestClient sierraRestClient)
         {
             _sierraRestClient = sierraRestClient;
-           
+
         }
 
         #endregion
@@ -42,6 +42,13 @@ namespace SierraCSharpRestClient.Concretes
             var result = _sierraRestClient.Client.Execute(request);
 
             return result.StatusCode != HttpStatusCode.NotFound;
+        }
+
+        public string Delete(int recordId)
+        {
+            var request = _sierraRestClient.Execute(Branch.patrons, $"/{recordId}", Method.DELETE);
+
+            return _sierraRestClient.Client.Execute(request).Content;
         }
 
 
@@ -78,6 +85,8 @@ namespace SierraCSharpRestClient.Concretes
 
             return x.Content;
         }
+
+       
 
 
 
@@ -117,6 +126,8 @@ namespace SierraCSharpRestClient.Concretes
 
             return _sierraRestClient.Client.Execute(request).Content;
         }
+
+
 
 
 

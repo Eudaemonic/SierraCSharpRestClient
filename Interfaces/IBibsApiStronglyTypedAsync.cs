@@ -8,5 +8,6 @@ namespace SierraCSharpRestClient.Interfaces
     {
         Task<BibsModel> GetById(int id, string[] fields = null);
         Task<BibSearchModel> Search(Indexes index, string query, string[] fields = null, int limit = 20);
+        Task<BibQuery> Query(string jsonQuery, int limit = 20, int offset = 0);
     }
 }

@@ -94,9 +94,24 @@ namespace SierraCSharpRestClient.Concretes
         /// <returns></returns>
         public async Task<CheckOuts> GetCheckouts(int id, string fields = null)
         {
-            if (fields == null) fields = GetObjectFieldsAsString<CheckOut>();
+            if (fields == null) fields = GetCheckOutFields();
 
             return JsonConvert.DeserializeObject<CheckOuts>(await _patron.GetCheckouts(id, fields));
+        }
+
+        public async Task<CheckOut> GetCheckout(int id, string fields)
+        {
+            if (fields == null) fields = GetCheckOutFields();
+
+            return JsonConvert.DeserializeObject<CheckOut>(await _patron.GetCheckout(id, fields));
+        }
+
+
+        public async Task<CheckOut> Renew(int id, string fields)
+        {
+            if (fields == null) fields = GetCheckOutFields();
+
+            return JsonConvert.DeserializeObject<CheckOut>(await _patron.Renew(id, fields));
         }
 
 
@@ -107,6 +122,12 @@ namespace SierraCSharpRestClient.Concretes
             var names = typeof(T).GetProperties().Select(p => p.Name).ToArray();
 
             return string.Join(",", names);
+
+        }
+
+        private string GetCheckOutFields()
+        {
+            return $"id,patron,item,dueDate,numberOfRenewals,outDate,recallDate,callNumber,barcode";
         }
 
         #endregion

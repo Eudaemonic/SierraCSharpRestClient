@@ -1,5 +1,4 @@
 ﻿using SierraCSharpRestClient.Enums;
-using SierraCSharpRestClient.Models;
 using SierraCSharpRestClient.Models.BibSubset;
 
 namespace SierraCSharpRestClient.Interfaces

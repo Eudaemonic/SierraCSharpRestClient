@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using SierraCSharpRestClient.Enums;
 using SierraCSharpRestClient.Interfaces;
 using SierraCSharpRestClient.Models;
@@ -12,10 +13,12 @@ namespace SierraCSharpRestClient.Concretes
         private readonly PatronApi _patron;
 
 
+
         public StronglyTypedPatronApi(ISierraRestClient sierraRestClient)
         {
             _patron = new PatronApi(sierraRestClient);
-    
+          
+
         }
 
         /// <summary>
@@ -26,6 +29,13 @@ namespace SierraCSharpRestClient.Concretes
         public bool CheckIfBarcodeExists(string barcode)
         {
             return _patron.CheckIfBarcodeExists(barcode);
+        }
+
+        public ErrorCode Delete(int recordId)
+        {
+            var json = JsonConvert.DeserializeObject<ErrorCode>(_patron.Delete(recordId));
+
+            return json;
         }
 
         /// <summary>

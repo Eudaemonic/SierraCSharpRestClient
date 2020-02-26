@@ -5,7 +5,16 @@
             patrons,
             items,
             orders,
-            bibs
+            bibs,
+            users,
+            agencies,
+            authorities,
+            fines,
+            branches,
+            info,
+            invoices
+
+
         }
     
 }

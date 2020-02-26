@@ -1,25 +1,15 @@
 ﻿using System;
+using SierraCSharpRestClient.Interfaces;
 
 namespace SierraCSharpRestClient.Models.PatronSubset
 {
-    public class CheckOut
+    public class CheckOut : ICheckout
     {
         private string _id;
         public string id
         {
-            get { return _id;}
-            set
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    _id = value.Substring(value.Length - 6);
-                }
-                else
-                {
-                    _id = value;
-                }
-
-            }
+            get => _id;
+            set => _id = !string.IsNullOrEmpty(value) ? value.Remove(0, value.LastIndexOf('/') + 1) : value;
         }
        
 
@@ -29,9 +19,14 @@ namespace SierraCSharpRestClient.Models.PatronSubset
         public int numberOfRenewals { get; set; }
         public DateTime outDate { get; set; }
         public DateTime recallDate { get; set; }
-
+        public string callNumber { get; set; }
         public string barcode { get; set; }
-    
+        public int code { get; set; }
+        public int specificCode { get; set; }
+        public int httpStatus { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+
 
     }
 }

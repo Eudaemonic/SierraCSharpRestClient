@@ -13,6 +13,13 @@ namespace SierraCSharpRestClient.Interfaces
         bool CheckIfBarcodeExists(string barcode);
 
         /// <summary>
+        /// Deletes Records and returns http response code
+        /// </summary>
+        /// <param name="recordId"></param>
+        /// <returns></returns>
+        ErrorCode Delete(int recordId);
+
+        /// <summary>
         /// Returns the id (as string) of a patron on creation
         /// </summary>
         /// <param name="patron"></param>

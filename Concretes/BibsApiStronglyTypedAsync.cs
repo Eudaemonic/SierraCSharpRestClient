@@ -32,8 +32,16 @@ namespace SierraCSharpRestClient.Concretes
                 return result;
             }
 
+            public async Task<BibQuery> Query(string jsonQuery,  int limit = 20, int offset = 0)
+            {
 
-        }
+                var result = JsonConvert.DeserializeObject<BibQuery>(await _bibsApi.Query(jsonQuery, limit, offset));
+
+                return result;
+            }
+
+
+    }
     }
 
 

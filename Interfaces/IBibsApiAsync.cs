@@ -16,5 +16,7 @@ namespace SierraCSharpRestClient.Interfaces
         Task <string> Search(Indexes index,  string query, string[] fields = null, int limit = 20);
 
         Task<string> GetById(int id, string[] fields = null);
+
+        Task<string> Query(string jsonQuery, int limit = 20, int offset = 0);
     }
 }

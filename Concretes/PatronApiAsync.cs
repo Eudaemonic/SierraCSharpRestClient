@@ -163,7 +163,6 @@ namespace SierraCSharpRestClient.Concretes
         }
 
 
-
         /// <summary>
         /// 
         /// </summary>
@@ -182,6 +181,42 @@ namespace SierraCSharpRestClient.Concretes
             return response.Content;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="fields"></param>
+        /// <returns></returns>
+        public async Task<string> GetCheckout(int id, string fields)
+        {
+
+            var request = _sierraRestClient.Execute(Branch.patrons, $"/checkouts/{id}", Method.GET);
+
+            request.AddQueryParameter("fields", fields);
+
+            IRestResponse response = await _sierraRestClient.Client.ExecuteTaskAsync(request);
+
+            return response.Content;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="fields"></param>
+        /// <returns></returns>
+        public async Task<string> Renew(int id, string fields)
+        {
+
+            var request = _sierraRestClient.Execute(Branch.patrons, $"/checkouts/{id}/renewal", Method.POST);
+
+            request.AddQueryParameter("fields", fields);
+
+            IRestResponse response = await _sierraRestClient.Client.ExecuteTaskAsync(request);
+
+            return response.Content;
+        }
         #endregion
 
 

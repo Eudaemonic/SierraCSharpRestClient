@@ -12,6 +12,8 @@ namespace SierraCSharpRestClient.Interfaces
         /// <returns></returns>
         bool CheckIfBarcodeExists(string barcode);
 
+
+
         /// <summary>
         /// Creates a new patron from a patron object
         /// Redturns ID on creation

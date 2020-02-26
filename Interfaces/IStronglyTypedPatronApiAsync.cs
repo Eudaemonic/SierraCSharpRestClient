@@ -54,5 +54,21 @@ namespace SierraCSharpRestClient.Interfaces
         /// <param name="fields"></param>
         /// <returns></returns>
         Task<CheckOuts> GetCheckouts(int id, string fields = null);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="fields"></param>
+        /// <returns></returns>
+        Task<CheckOut> GetCheckout(int id, string fields = null);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="fields"></param>
+        /// <returns></returns>
+        Task<CheckOut> Renew(int id, string fields = null);
     }
 }
