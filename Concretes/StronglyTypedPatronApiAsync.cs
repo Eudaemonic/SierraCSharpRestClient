@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using SierraCSharpRestClient.Enums;
 using SierraCSharpRestClient.Interfaces;
 using SierraCSharpRestClient.Models;
+using SierraCSharpRestClient.Models.FinesSet;
 using SierraCSharpRestClient.Models.PatronSubset;
 
 namespace SierraCSharpRestClient.Concretes
@@ -107,13 +108,36 @@ namespace SierraCSharpRestClient.Concretes
         }
 
 
-        public async Task<CheckOut> Renew(int id, string fields)
+        public  async Task<CheckOut> Renew(int id, string fields)
         {
             if (fields == null) fields = GetCheckOutFields();
-
+            
             return JsonConvert.DeserializeObject<CheckOut>(await _patron.Renew(id, fields));
         }
 
+
+
+        #region Fines
+
+
+        public async Task<bool> Charge(int recordId, int amount, string reason, string location)
+        {
+            return await _patron.Charge(recordId, amount, reason, location);
+        }
+
+
+        public async Task<Fines> Fines(int recordId)
+        {
+                return JsonConvert.DeserializeObject<Fines>(await _patron.Fines(recordId));
+        }
+
+
+        public async Task<bool> Payment(int recordId, Payments payments)
+        {
+            return await _patron.Payment(recordId, payments);
+        }
+
+        #endregion
 
         #region helpers
 

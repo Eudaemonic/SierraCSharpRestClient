@@ -65,5 +65,12 @@ namespace SierraCSharpRestClient.Interfaces
         /// <param name="fields"></param>
         /// <returns></returns>
         Task<string> GetCheckouts(int id, string fields);
+
+        /// <summary>
+        /// Get a list of fines for patron.
+        /// </summary>
+        /// <param name="recordId"></param>
+        /// <returns></returns>
+        Task<string> Fines(int recordId);
     }
 }

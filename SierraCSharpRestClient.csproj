@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\PaymentType.cs" />
     <Compile Include="Interfaces\IItemsApiAsync.cs" />
     <Compile Include="Concretes\ItemsApiAsync.cs" />
     <Compile Include="Concretes\ItemsApiStronglyTyped.cs" />
@@ -85,6 +86,10 @@
     <Compile Include="Models\BibSubset\BibSearchModel.cs" />
     <Compile Include="Models\BibSubset\BibsModel.cs" />
     <Compile Include="Models\BibSubset\SimpleBib.cs" />
+    <Compile Include="Models\FinesSet\Fine.cs" />
+    <Compile Include="Models\FinesSet\Fines.cs" />
+    <Compile Include="Models\FinesSet\Payment.cs" />
+    <Compile Include="Models\FinesSet\Payments.cs" />
     <Compile Include="Models\Items\IItem.cs" />
     <Compile Include="Models\Items\Item.cs" />
     <Compile Include="Models\Patron.cs" />
