@@ -51,7 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concretes\InvoicesApiAsync.cs" />
+    <Compile Include="Enums\InvoiceParameters.cs" />
+    <Compile Include="Enums\LineItemParameters.cs" />
     <Compile Include="Enums\PaymentType.cs" />
+    <Compile Include="Interfaces\IInvoicesApiAsync.cs" />
     <Compile Include="Interfaces\IItemsApiAsync.cs" />
     <Compile Include="Concretes\ItemsApiAsync.cs" />
     <Compile Include="Concretes\ItemsApiStronglyTyped.cs" />
@@ -88,6 +92,8 @@
     <Compile Include="Models\FinesSet\Fines.cs" />
     <Compile Include="Models\FinesSet\Payment.cs" />
     <Compile Include="Models\FinesSet\Payments.cs" />
+    <Compile Include="Models\Invoices\Invoice.cs" />
+    <Compile Include="Models\Invoices\LineItem.cs" />
     <Compile Include="Models\Items\IItem.cs" />
     <Compile Include="Models\Items\Item.cs" />
     <Compile Include="Models\Patron.cs" />

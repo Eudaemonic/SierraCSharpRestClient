@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿    using System;
+using System.Threading.Tasks;
 using RestSharp;
 using SierraCSharpRestClient.Interfaces;
 
@@ -19,10 +20,12 @@ namespace SierraCSharpRestClient.Concretes
 
         #region Methods
 
-        public async Task<string> Get(string[] itemIds = null, string status = "", string[] bibIds = null, string[] fields = null, string[] locations = null, int limit = 50,
+        public async Task<string> Get(string[] itemIds = null,  string status = "", string[] bibIds = null, string[] fields = null, string[] locations = null, int limit = 50,
             int offset = 0)
         { 
             var request = _sierraRestClient.Execute(Branch.items, "/", Method.GET);
+
+         
 
 
             if (fields != null) request.AddQueryParameter("fields", string.Join(",", fields));
@@ -58,7 +61,7 @@ namespace SierraCSharpRestClient.Concretes
 
         }
 
-        
+
 
         #endregion
 
