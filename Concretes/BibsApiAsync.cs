@@ -96,6 +96,19 @@ namespace SierraCSharpRestClient.Concretes
             return result.Content;
 
         }
+        public async Task<string> GetMarc(int id)
+        {
+   
+            var request = _sierraRestClient.Execute(Branch.bibs, $"/{id}/marc", Method.GET);
+
+            request.AddHeader("Accept", "application/marc-xml");
+            
+            // execute the request
+            var result = await _sierraRestClient.Client.ExecuteGetTaskAsync(request);
+
+            return result.Content;
+
+        }
 
 
 

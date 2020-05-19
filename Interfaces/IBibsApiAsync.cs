@@ -18,5 +18,8 @@ namespace SierraCSharpRestClient.Interfaces
         Task<string> GetById(int id, string[] fields = null);
 
         Task<string> Query(string jsonQuery, int limit = 20, int offset = 0);
+
+        Task<string> GetMarc(int id);
+
     }
 }
