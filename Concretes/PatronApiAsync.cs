@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -6,6 +7,7 @@ using RestSharp;
 using SierraCSharpRestClient.Enums;
 using SierraCSharpRestClient.Interfaces;
 using SierraCSharpRestClient.Models;
+using SierraCSharpRestClient.Models.FinesSet;
 
 namespace SierraCSharpRestClient.Concretes
 {
@@ -181,6 +183,8 @@ namespace SierraCSharpRestClient.Concretes
             return response.Content;
         }
 
+       
+
         /// <summary>
         /// 
         /// </summary>
@@ -219,6 +223,53 @@ namespace SierraCSharpRestClient.Concretes
         }
         #endregion
 
+        #region Fines
+
+        public async Task<bool> Charge(int recordId, int amount, string reason, string location)
+        {
+
+            var values = new Dictionary<string, object>
+            {
+                { "amount", amount },
+                { "reason", reason},
+                { "location", location}
+            };
+            var request = _sierraRestClient.Execute(Branch.patrons, $"/{recordId}/fines/charge", Method.POST);
+            var body = JsonConvert.SerializeObject(values);
+            request.AddParameter("text/json", body, ParameterType.RequestBody);
+
+            var result = await _sierraRestClient.Client.ExecutePostTaskAsync(request);
+
+            return result.IsSuccessful;
+        }
+
+
+        public async Task<string> Fines(int recordId)
+        {
+
+            var request = _sierraRestClient.Execute(Branch.patrons, $"/{recordId}/fines", Method.GET);
+            
+            var result = await _sierraRestClient.Client.ExecuteGetTaskAsync(request);
+
+            return result.Content;
+        }
+
+
+
+        public async Task<bool> Payment(int recordId, Payments payments)
+        {
+
+  
+            var request = _sierraRestClient.Execute(Branch.patrons, $"/{recordId}/fines/payment", Method.PUT);
+            var body = JsonConvert.SerializeObject(payments);
+            request.AddParameter("text/json", body, ParameterType.RequestBody);
+
+            var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
+
+            return result.IsSuccessful;
+        }
+
+        #endregion
 
 
         #region StringHelpers

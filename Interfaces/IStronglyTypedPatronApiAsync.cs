@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using SierraCSharpRestClient.Enums;
 using SierraCSharpRestClient.Models;
+using SierraCSharpRestClient.Models.FinesSet;
 using SierraCSharpRestClient.Models.PatronSubset;
 
 namespace SierraCSharpRestClient.Interfaces
@@ -63,12 +64,25 @@ namespace SierraCSharpRestClient.Interfaces
         /// <returns></returns>
         Task<CheckOut> GetCheckout(int id, string fields = null);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="fields"></param>
-        /// <returns></returns>
-        Task<CheckOut> Renew(int id, string fields = null);
+        Task<CheckOut> Renew(int id, string fields);
+        
+
+            /// <summary>
+            /// Adds a fine to users record
+            /// </summary>
+            /// <param name="recordId"></param>
+            /// <param name="amount"></param>
+            /// <param name="reason"></param>
+            /// <param name="location"></param>
+            /// <returns></returns>
+            Task<bool> Charge (int recordId, int amount, string reason, string location);
+
+        Task<Fines> Fines(int recordId);
+
+        Task<bool> Payment(int recordId, Payments payments);
+
+
     }
+
+
 }
