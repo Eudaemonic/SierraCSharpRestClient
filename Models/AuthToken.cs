@@ -1,6 +1,6 @@
 ﻿
 
-namespace SierraCSharpRestClient
+namespace SierraCSharpRestClient.Models
 {
     public class AuthToken
     {
