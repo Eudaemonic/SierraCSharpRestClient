@@ -1,8 +1,9 @@
-﻿using System;
-using System.IO;
-using System.Text;
-using RestSharp;
+﻿using RestSharp;
 using SierraCSharpRestClient.Interfaces;
+using SierraCSharpRestClient.Models;
+using System;
+using System.Diagnostics;
+using System.Text;
 
 namespace SierraCSharpRestClient.Concretes
 {
@@ -69,17 +70,26 @@ namespace SierraCSharpRestClient.Concretes
         {
             get
             {
-                var stringToEncode = Encoding.UTF8.GetBytes(_clientKey + ":" + _clientSecret);
+                try
+                {
+                    var stringToEncode = Encoding.UTF8.GetBytes(_clientKey + ":" + _clientSecret);
 
-                var headerValue = "Basic " + Convert.ToBase64String(stringToEncode);
+                    var headerValue = "Basic " + Convert.ToBase64String(stringToEncode);
 
-                var request = new RestRequest("token", Method.POST);
+                    var request = new RestRequest("token", Method.POST);
 
-                request.AddHeader("Authorization", headerValue);
+                    request.AddHeader("Authorization", headerValue);
 
-                var resultToken = Client.Execute<AuthToken>(request).Data;
+                    var resultToken = Client.Execute<AuthToken>(request);
 
-                return  resultToken.access_token;
+                    return resultToken.Data.access_token;
+                }
+                catch (Exception ex)
+                {
+                    Debug.Write(ex.Message);
+                }
+
+                return null;
 
             }
             set => throw new NotImplementedException();

@@ -25,9 +25,6 @@ namespace SierraCSharpRestClient.Concretes
         { 
             var request = _sierraRestClient.Execute(Branch.items, "/", Method.GET);
 
-         
-
-
             if (fields != null) request.AddQueryParameter("fields", string.Join(",", fields));
 
             if (itemIds != null) request.AddQueryParameter("id", string.Join(",", itemIds));

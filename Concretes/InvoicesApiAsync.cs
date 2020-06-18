@@ -87,7 +87,7 @@ namespace SierraCSharpRestClient.Concretes
 
        string FormatSierraDateRange(DateTime startDate, DateTime endDate)
         {
-            var result = "";
+
             var sb = new StringBuilder();
             if(endDate != null)
             {

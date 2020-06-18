@@ -7,7 +7,6 @@ using SierraCSharpRestClient.Enums;
 using SierraCSharpRestClient.Interfaces;
 using SierraCSharpRestClient.Models;
 using SierraCSharpRestClient.Models.BibSubset;
-
 namespace SierraCSharpRestClient.Concretes
 {
     public class BibsApiStronglyTyped : IBibsApiStronglyTyped
