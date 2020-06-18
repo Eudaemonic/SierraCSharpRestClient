@@ -52,4 +52,16 @@ namespace SierraCSharpRestClient.Models.Invoices
         [JsonProperty("vendor")]
         public string Vendor { get; set; }
     }
+
+
+    public class LineItems
+    {
+        [JsonProperty("total")]
+        public int Total { get; set; }
+
+        [JsonProperty("entries")]
+        public List<LineItem> Entries { get; set; }
+
+
+    }
 }

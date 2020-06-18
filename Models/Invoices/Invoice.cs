@@ -17,7 +17,7 @@ namespace SierraCSharpRestClient.Models.Invoices
         public long AccountingUnit { get; set; }
 
         [JsonProperty("invDate")]
-        public DateTimeOffset InvDate { get; set; }
+        public DateTime InvDate { get; set; }
 
         [JsonProperty("invNum")]
         public string InvNum { get; set; }
@@ -71,7 +71,7 @@ namespace SierraCSharpRestClient.Models.Invoices
     public class Invoices
     {
         [JsonProperty("total")]
-        public string Total { get; set; }
+        public int Total { get; set; }
 
         [JsonProperty("entries")]
         public List<Invoice> Entries { get; set; }

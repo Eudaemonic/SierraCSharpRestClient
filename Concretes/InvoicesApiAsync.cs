@@ -3,6 +3,7 @@ using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
+using SierraCSharpRestClient.Enums;
 using SierraCSharpRestClient.Interfaces;
 
 namespace SierraCSharpRestClient.Concretes
@@ -22,12 +23,16 @@ namespace SierraCSharpRestClient.Concretes
 
         #region Methods
 
-        public async Task<string> Get(string login, DateTime startDate, DateTime endDate, string status = "", string[] Ids = null, string[] fields = null, string[] locations = null, int limit = 50, 
+        public async Task<string> Get(string login, DateTime? startDate, DateTime?  endDate, InvoiceDateQuery dateToQuery, string status = "", string[] Ids = null, string[] fields = null, string[] locations = null, int limit = 50, 
             int offset = 0)
         { 
             var request = _sierraRestClient.Execute(Branch.invoices, "/", Method.GET);
 
-            request.AddQueryParameter("createdDate", FormatSierraDateRange(startDate, endDate));
+            if (startDate.HasValue && endDate.HasValue)
+            {
+                request.AddQueryParameter(dateToQuery.ToString(), FormatSierraDateRange(startDate.Value, endDate.Value));
+              
+            }
             request.AddQueryParameter("login", login.Trim());
 
             if (fields != null) request.AddQueryParameter("fields", string.Join(",", fields));
@@ -46,10 +51,12 @@ namespace SierraCSharpRestClient.Concretes
             return result.Content;
         }
 
-        public async Task<string> Get(string id, string[] fields = null)
+        public async Task<string> Get(string login, string id, string[] fields = null)
         {
 
             var request = _sierraRestClient.Execute(Branch.invoices, $"/{id}", Method.GET);
+
+            request.AddQueryParameter("login", login.Trim());
 
             if (fields != null) request.AddQueryParameter("fields", string.Join(",", fields));
 
@@ -63,7 +70,7 @@ namespace SierraCSharpRestClient.Concretes
 
         public async Task<string>LineItems(string id, string login,  string[] fields = null)
         {
-            var request = _sierraRestClient.Execute(Branch.invoices, $"/{id}/lineitems", Method.GET);
+            var request = _sierraRestClient.Execute(Branch.invoices, $"/{id}/lineItems", Method.GET);
 
             request.AddQueryParameter("login", login.Trim());
 

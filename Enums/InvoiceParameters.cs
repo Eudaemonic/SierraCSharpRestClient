@@ -15,4 +15,10 @@
         lineItems,
         statusCode
     }
+
+    public enum InvoiceDateQuery
+    {
+        createdDate,
+        invoiceDate
+    }
 }
