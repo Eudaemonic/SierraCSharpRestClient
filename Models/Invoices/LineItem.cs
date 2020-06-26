@@ -46,8 +46,7 @@ namespace SierraCSharpRestClient.Models.Invoices
         public string Title { get; set; }
 
         [JsonProperty("multiFlag")]
-   
-        public long MultiFlag { get; set; }
+        public string MultiFlag { get; set; }
 
         [JsonProperty("vendor")]
         public string Vendor { get; set; }
