@@ -14,6 +14,7 @@
         useTax,
         lineItems,
         statusCode
+     
     }
 
     public enum InvoiceDateQuery

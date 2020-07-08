@@ -36,6 +36,16 @@ namespace SierraCSharpRestClient.Models.Invoices
 
         [JsonProperty("statusCode")]
         public string StatusCode { get; set; }
+
+
+        [JsonProperty("taxType")]
+        public string TaxType { get; set; } 
+        
+        [JsonProperty("foreignCurrency")]
+        public ForeignCurrency ForeignCurrency { get; set; }
+
+
+
     }
 
     public class InvTotal
@@ -55,8 +65,18 @@ namespace SierraCSharpRestClient.Models.Invoices
         [JsonProperty("grandTotal")]
         public double GrandTotal { get; set; }
     }
+    public class ForeignCurrency {
+        [JsonProperty("code")]
+        public string Code { get; set; }
+        
+        [JsonProperty("rate")]
+        public string Rate { get; set; }
+        
+        [JsonProperty("format")]
+        public string Format { get; set; }
+    }
 
-    public class Vendor
+public class Vendor
     {
         [JsonProperty("vendorCode")]
         public string VendorCode { get; set; }
@@ -66,6 +86,20 @@ namespace SierraCSharpRestClient.Models.Invoices
 
         [JsonProperty("voucherTotal")]
         public long VoucherTotal { get; set; }
+    }
+
+public class UseTax
+{
+        [JsonProperty("useTaxFund")]
+        public string UseTaxFund { get; set; }
+        
+        [JsonProperty("percentageRate")] 
+        public decimal PercentageRate { get; set; }
+
+        [JsonProperty("useTaxType")]
+        public string UseTaxType { get; set; }
+
+
     }
 
     public class Invoices

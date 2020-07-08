@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IVendorApiAsync.cs" />
+    <Compile Include="Concretes\VendorApiAsync.cs" />
+    <Compile Include="Helpers\DateHelpers.cs" />
     <Compile Include="Interfaces\IItemsApiStronglyTypedAsync.cs" />
     <Compile Include="Concretes\InvoicesApiAsync.cs" />
     <Compile Include="Concretes\ItemsApiStronglyTypedAsync.cs" />
@@ -104,9 +107,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Concretes\SierraRestRequest.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
