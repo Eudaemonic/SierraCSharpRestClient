@@ -13,6 +13,7 @@ namespace SierraCSharpRestClient.Models.Items
     {
         public string code { get; set; }
         public string display { get; set; }
+        public DateTime? duedate { get; set; }
     }
 
     public class Item
