@@ -94,6 +94,7 @@
     <Compile Include="Models\Items\Item.cs" />
     <Compile Include="Models\Patron.cs" />
     <Compile Include="Models\PatronSubset\ErrorCode.cs" />
+    <Compile Include="Models\PatronSubset\Hold.cs" />
     <Compile Include="Models\PatronSubset\PatronMetaData.cs" />
     <Compile Include="Models\Patrons.cs" />
     <Compile Include="Concretes\StronglyTypedPatronApi.cs" />
