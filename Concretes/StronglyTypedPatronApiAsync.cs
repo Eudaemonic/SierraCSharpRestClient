@@ -20,6 +20,11 @@ namespace SierraCSharpRestClient.Concretes
     
         }
 
+        public async Task<BaseEnumerator> Query(string json,  int offset, int limit)
+        {
+            return JsonConvert.DeserializeObject<BaseEnumerator>(await _patron.Query(json, offset, limit));
+        }
+
         /// <summary>
         /// Simple method to replicate the existing barcode function in Sierra.
         /// </summary>

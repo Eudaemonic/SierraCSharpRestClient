@@ -8,6 +8,8 @@ namespace SierraCSharpRestClient.Interfaces
 {
     public interface IStronglyTypedPatronApiAsync
     {
+
+        Task<BaseEnumerator> Query(string json, int offset, int limit);
         /// <summary>
         /// Simple method to replicate the existing barcode function in Sierra.
         /// </summary>

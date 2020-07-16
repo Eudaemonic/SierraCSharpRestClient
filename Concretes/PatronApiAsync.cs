@@ -40,6 +40,21 @@ namespace SierraCSharpRestClient.Concretes
         }
 
 
+        public async Task<string> Query(string json, int offset, int limit)
+        {
+            var request = _sierraRestClient.Execute(Branch.patrons, "/query", Method.POST);
+
+            request.AddQueryParameter("offset", offset.ToString());
+            request.AddQueryParameter("limit", limit.ToString());
+            request.AddParameter("application/json", json, ParameterType.RequestBody);
+            // execute the request
+            var x = await _sierraRestClient.Client.ExecutePostTaskAsync(request);
+
+            return x.Content;
+        }
+
+
+
         /// <inheritdoc />
         /// <summary>
         /// Returns a true if barcode is already in the system

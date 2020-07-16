@@ -79,6 +79,7 @@
     <Compile Include="Extensions\EnumExtension.cs" />
     <Compile Include="Extensions\ExtensionsString.cs" />
     <Compile Include="Interfaces\IPatronApi.cs" />
+    <Compile Include="Models\BaseEnumerator.cs" />
     <Compile Include="Models\BibModels.cs" />
     <Compile Include="Models\BibSubset\BibQuery.cs" />
     <Compile Include="Models\BibSubset\BibSearchModel.cs" />

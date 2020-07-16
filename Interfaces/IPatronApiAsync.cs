@@ -8,6 +8,9 @@ namespace SierraCSharpRestClient.Interfaces
     {
         Task<string> Get(int id, string fields);
 
+
+        Task<string> Query(string json, int offset = 0, int limit = 1);
+
         /// <inheritdoc />
         /// <summary>
         /// Returns a true if barcode is already in the system
