@@ -12,7 +12,9 @@
             fines,
             branches,
             info,
-            invoices
+            invoices,
+            funds,
+            vendors
 
 
         }

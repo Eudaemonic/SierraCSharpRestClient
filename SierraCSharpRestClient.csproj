@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concretes\FundsApiAsync.cs" />
     <Compile Include="Interfaces\IVendorApiAsync.cs" />
     <Compile Include="Concretes\VendorApiAsync.cs" />
     <Compile Include="Helpers\DateHelpers.cs" />

@@ -25,7 +25,7 @@ namespace SierraCSharpRestClient.Concretes
         public async Task<string> Get(string login,   DateTime? startDate, DateTime?  endDate, InvoiceDateQuery dateToQuery, string[] code = null, string[] ids = null, string[] fields = null, int limit = 50, 
             int offset = 0)
         { 
-            var request = _sierraRestClient.Execute(Branch.vendors, "/", Method.GET);
+            var request = _sierraRestClient.Execute(Branch.invoices, "/", Method.GET);
 
             if (startDate.HasValue && endDate.HasValue)
             {
