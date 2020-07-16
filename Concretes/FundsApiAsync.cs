@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace SierraCSharpRestClient.Concretes
 {
-    public class VendorApiAsync : IVendorApiAsync
+    public class FundsApiAsync : IVendorApiAsync
     {
         #region Initialiser
 
         private readonly ISierraRestClient _sierraRestClient;
 
-        public VendorApiAsync(ISierraRestClient sierraRestClient)
+        public FundsApiAsync(ISierraRestClient sierraRestClient)
         {
             _sierraRestClient = sierraRestClient;
         }
