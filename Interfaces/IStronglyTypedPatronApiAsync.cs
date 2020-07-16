@@ -78,8 +78,11 @@ namespace SierraCSharpRestClient.Interfaces
             Task<bool> Charge (int recordId, int amount, string reason, string location);
 
         Task<Fines> Fines(int recordId);
+        Task<Holds> Holds(int recordId);
 
         Task<bool> Payment(int recordId, Payments payments);
+
+
 
 
     }

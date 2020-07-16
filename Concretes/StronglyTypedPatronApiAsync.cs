@@ -137,6 +137,13 @@ namespace SierraCSharpRestClient.Concretes
             return await _patron.Payment(recordId, payments);
         }
 
+
+        public async Task<Holds> Holds(int recordId)
+        {
+            return JsonConvert.DeserializeObject<Holds>(await _patron.Holds(recordId));
+        }
+
+
         #endregion
 
         #region helpers

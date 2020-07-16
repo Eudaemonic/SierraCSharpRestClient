@@ -269,6 +269,19 @@ namespace SierraCSharpRestClient.Concretes
             return result.IsSuccessful;
         }
 
+
+        public async Task<string> Holds(int recordId)
+        {
+
+            var request = _sierraRestClient.Execute(Branch.patrons, $"/{recordId}/holds", Method.GET);
+         
+
+            var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
+
+            return result.Content;
+        }
+
+
         #endregion
 
 
