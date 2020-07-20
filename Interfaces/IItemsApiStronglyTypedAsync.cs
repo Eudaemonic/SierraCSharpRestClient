@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using SierraCSharpRestClient.Models;
 using SierraCSharpRestClient.Models.Items;
 
 namespace SierraCSharpRestClient.Interfaces
@@ -9,5 +10,7 @@ namespace SierraCSharpRestClient.Interfaces
             int offset = 0, string suppressedOnly = "");
 
         Task<Item> Get(string id,  string[] fields = null);
+
+        Task<BaseEnumerator> Query(string json, int offset, int limit);
     }
 }

@@ -59,6 +59,18 @@ namespace SierraCSharpRestClient.Concretes
 
         }
 
+        public async Task<string> Query(string json, int offset, int limit)
+        {
+            var request = _sierraRestClient.Execute(Branch.items, "/query", Method.POST);
+
+            request.AddQueryParameter("offset", offset.ToString());
+            request.AddQueryParameter("limit", limit.ToString());
+            request.AddParameter("application/json", json, ParameterType.RequestBody);
+            // execute the request
+            var x = await _sierraRestClient.Client.ExecutePostTaskAsync(request);
+
+            return x.Content;
+        }
 
 
         #endregion

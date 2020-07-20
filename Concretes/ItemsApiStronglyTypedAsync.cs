@@ -3,6 +3,7 @@ using SierraCSharpRestClient.Models.Items;
 using System;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using SierraCSharpRestClient.Models;
 
 namespace SierraCSharpRestClient.Concretes
 {
@@ -25,6 +26,12 @@ namespace SierraCSharpRestClient.Concretes
         public async Task<Item> Get(string id,  string[] fields = null)
         {
             return JsonConvert.DeserializeObject<Item>(await _itemsApi.Get(id, fields));
+        }
+
+
+        public async Task<BaseEnumerator> Query(string json, int offset, int limit)
+        {
+            return JsonConvert.DeserializeObject<BaseEnumerator>(await _itemsApi.Query(json, offset, limit));
         }
     }
 }

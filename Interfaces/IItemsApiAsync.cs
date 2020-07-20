@@ -8,5 +8,8 @@ namespace SierraCSharpRestClient.Interfaces
             int offset = 0, string suppressedOnly = "");
 
         Task<string> Get(string id, string[] fields = null);
+
+
+        Task<string> Query(string json, int offset, int limit);
     }
 }
