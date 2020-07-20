@@ -17,9 +17,9 @@ namespace SierraCSharpRestClient.Concretes
 
 
         public async Task<ItemResult> Get(string[] itemIds = null, string status = "", string[] bibIds = null, string[] fields = null, string[] locations = null, int limit = 50,
-            int offset = 0)
+            int offset = 0, string suppressedOnly = "")
         {
-          return JsonConvert.DeserializeObject<ItemResult>(await _itemsApi.Get(itemIds, status, bibIds, fields, locations, limit, offset));
+          return JsonConvert.DeserializeObject<ItemResult>(await _itemsApi.Get(itemIds, status, bibIds, fields, locations, limit, offset, suppressedOnly));
         }
 
         public async Task<Item> Get(string id,  string[] fields = null)

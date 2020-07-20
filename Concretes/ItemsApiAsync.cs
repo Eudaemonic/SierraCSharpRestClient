@@ -21,7 +21,7 @@ namespace SierraCSharpRestClient.Concretes
         #region Methods
 
         public async Task<string> Get(string[] itemIds = null,  string status = "", string[] bibIds = null, string[] fields = null, string[] locations = null, int limit = 50,
-            int offset = 0)
+            int offset = 0, string suppressedOnly = "")
         { 
             var request = _sierraRestClient.Execute(Branch.items, "/", Method.GET);
 
@@ -32,6 +32,7 @@ namespace SierraCSharpRestClient.Concretes
             if (locations != null) request.AddQueryParameter("locations", string.Join(",", locations));
 
             if (!string.IsNullOrWhiteSpace(status)) request.AddQueryParameter("status", status);
+            if (!string.IsNullOrWhiteSpace(suppressedOnly)) request.AddQueryParameter("suppressed", suppressedOnly);
 
             if(bibIds != null) request.AddQueryParameter("bibIds", string.Join(",", bibIds));
 
