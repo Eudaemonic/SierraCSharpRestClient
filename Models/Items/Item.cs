@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace SierraCSharpRestClient.Models.Items
 {
@@ -27,6 +28,39 @@ namespace SierraCSharpRestClient.Models.Items
         public Status status { get; set; }
         public string barcode { get; set; }
         public string callNumber { get; set; }
+
+        [JsonProperty("varFields")]
+        public VarField[] varFields { get; set; }
+    }
+
+    public  class VarField
+    {
+        [JsonProperty("fieldTag")]
+        public string FieldTag { get; set; }
+
+        [JsonProperty("content", NullValueHandling = NullValueHandling.Ignore)]
+        public string Content { get; set; }
+
+        [JsonProperty("marcTag", NullValueHandling = NullValueHandling.Ignore)]
+        public string MarcTag { get; set; }
+
+        [JsonProperty("ind1", NullValueHandling = NullValueHandling.Ignore)]
+        public string Ind1 { get; set; }
+
+        [JsonProperty("ind2", NullValueHandling = NullValueHandling.Ignore)]
+        public string Ind2 { get; set; }
+
+        [JsonProperty("subfields", NullValueHandling = NullValueHandling.Ignore)]
+        public Subfield[] Subfields { get; set; }
+    }
+
+    public  class Subfield
+    {
+        [JsonProperty("tag")]
+        public string Tag { get; set; }
+
+        [JsonProperty("content")]
+        public string Content { get; set; }
     }
 
     public class ItemResult
