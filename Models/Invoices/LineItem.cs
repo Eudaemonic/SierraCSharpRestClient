@@ -19,10 +19,10 @@ namespace SierraCSharpRestClient.Models.Invoices
         public Uri Order { get; set; }
 
         [JsonProperty("paidAmount")]
-        public long PaidAmount { get; set; }
+        public decimal PaidAmount { get; set; }
 
         [JsonProperty("lienAmount")]
-        public long LienAmount { get; set; }
+        public decimal LienAmount { get; set; }
 
         [JsonProperty("lienFlag")]
         public long LienFlag { get; set; }
