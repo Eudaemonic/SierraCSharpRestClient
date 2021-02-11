@@ -12,7 +12,7 @@ namespace SierraCSharpRestClient.Concretes
 
             public BibsApiStronglyTypedAsync(ISierraRestClient sierraRestClient)
             {
-                _bibsApi = new BibsApiAsync(sierraRestClient);
+                _bibsApi = new BibsApiAsync(sierraRestClient); 
             }
 
             public async Task<BibsModel> GetById(int id, string[] fields = null)
