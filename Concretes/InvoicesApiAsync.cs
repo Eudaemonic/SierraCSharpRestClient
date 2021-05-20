@@ -23,7 +23,8 @@ namespace SierraCSharpRestClient.Concretes
 
         #region Methods
 
-        public async Task<string> Get(string login, DateTime? startDate, DateTime?  endDate, InvoiceDateQuery dateToQuery, string status = "", string[] Ids = null, string[] fields = null, string[] locations = null, int limit = 50, 
+
+        public async Task<string> Get(string login, DateTime? startDate, DateTime?  endDate, InvoiceDateQuery dateToQuery, string status = "", string[] Ids = null, string[] invNum = null, string[] fields = null, string[] locations = null, int limit = 50, 
             int offset = 0)
         { 
             var request = _sierraRestClient.Execute(Branch.invoices, "/", Method.GET);
@@ -41,6 +42,8 @@ namespace SierraCSharpRestClient.Concretes
 
             if(Ids != null) request.AddQueryParameter("id", string.Join(",", Ids));
 
+            if(invNum != null) request.AddQueryParameter("invNum", string.Join(",", invNum));
+
             request.AddQueryParameter("limit", limit.ToString());
 
             request.AddQueryParameter("offset", offset.ToString());
@@ -49,6 +52,23 @@ namespace SierraCSharpRestClient.Concretes
             var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
 
             return result.Content;
+        }
+
+        public async Task<string> GetByInvoiceNumber(string login, string invNum, string[] fields = null)
+        {
+            var request = _sierraRestClient.Execute(Branch.invoices, "/", Method.GET);
+
+            request.AddQueryParameter("login", login.Trim());
+
+            if (fields != null) request.AddQueryParameter("fields", string.Join(",", fields));
+
+            if (invNum != null) request.AddQueryParameter("invNum", string.Join(",", invNum));
+
+            // execute the request
+            var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
+
+            return result.Content;
+
         }
 
         public async Task<string> Get(string login, string id, string[] fields = null)
