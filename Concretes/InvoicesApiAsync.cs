@@ -98,7 +98,13 @@ namespace SierraCSharpRestClient.Concretes
             // execute the request
             var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
 
-            return result.Content;
+            if (result.IsSuccessful)
+            {
+                return result.Content;
+            }
+
+            throw new NullReferenceException(result.ErrorMessage);
+
         }
 
         #endregion
