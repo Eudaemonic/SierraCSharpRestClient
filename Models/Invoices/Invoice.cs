@@ -41,7 +41,7 @@ namespace SierraCSharpRestClient.Models.Invoices
         [JsonProperty("taxType")]
         public string TaxType { get; set; } 
         
-        [JsonProperty("foreignCurrency")]
+        [JsonProperty("forCurrency")]
         public ForeignCurrency ForeignCurrency { get; set; }
 
 
