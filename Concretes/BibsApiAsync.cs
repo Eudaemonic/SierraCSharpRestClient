@@ -35,8 +35,9 @@ namespace SierraCSharpRestClient.Concretes
         /// <param name="fields"></param>
         /// <param name="query"></param>
         /// <param name="limit"></param>
+        /// <param name="start"></param>
         /// <returns></returns>
-        public async Task<string> Search(Indexes index, string query, string[] fields = null, int limit = 20)
+        public async Task<string> Search(Indexes index, string query, string[] fields = null, int limit = 20, int offset = 0)
         {
             if (fields is null)
             {
@@ -51,6 +52,7 @@ namespace SierraCSharpRestClient.Concretes
             request.AddQueryParameter("fields", string.Join(",", fields));
             request.AddQueryParameter("text", query.ToLower());
             request.AddQueryParameter("limit", limit.ToString());
+            request.AddQueryParameter("offset", offset.ToString());
 
             // execute the request
             var result =  await _sierraRestClient.Client.ExecuteTaskAsync(request);
