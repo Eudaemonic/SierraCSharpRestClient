@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RestSharp;
@@ -290,6 +291,18 @@ namespace SierraCSharpRestClient.Concretes
 
             var request = _sierraRestClient.Execute(Branch.patrons, $"/{recordId}/holds", Method.GET);
          
+
+            var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
+
+            return result.Content;
+        }
+
+
+        public async Task<string> PostHoldRequest(int id, string body)
+        {
+
+            var request = _sierraRestClient.Execute(Branch.patrons, $"/{id}/holds/requests", Method.POST);
+
 
             var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
 

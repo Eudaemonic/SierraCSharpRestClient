@@ -82,8 +82,10 @@
     <Compile Include="Interfaces\IPatronApi.cs" />
     <Compile Include="Models\BaseEnumerator.cs" />
     <Compile Include="Models\BaseJsonQuery.cs" />
+    <Compile Include="Models\BaseResponse.cs" />
     <Compile Include="Models\BibModels.cs" />
     <Compile Include="Models\BibSubset\BibQuery.cs" />
+    <Compile Include="Models\BibSubset\BibSearchModelWithItems.cs" />
     <Compile Include="Models\BibSubset\BibSearchModel.cs" />
     <Compile Include="Models\BibSubset\BibsModel.cs" />
     <Compile Include="Models\BibSubset\SimpleBib.cs" />
@@ -93,6 +95,7 @@
     <Compile Include="Models\FinesSet\Payments.cs" />
     <Compile Include="Models\Invoices\Invoice.cs" />
     <Compile Include="Models\Invoices\LineItem.cs" />
+    <Compile Include="Models\Items\ItemsSearchModel.cs" />
     <Compile Include="Models\Items\IItem.cs" />
     <Compile Include="Models\Items\Item.cs" />
     <Compile Include="Models\Patron.cs" />
@@ -108,6 +111,7 @@
     <Compile Include="Concretes\SierraRestClient.cs" />
     <Compile Include="Models\PatronSubset\CheckOut.cs" />
     <Compile Include="Models\PatronSubset\CheckOuts.cs" />
+    <Compile Include="Models\PatronSubset\Reservation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Concretes\SierraRestRequest.cs" />
   </ItemGroup>

@@ -41,5 +41,7 @@ namespace SierraCSharpRestClient.Models.BibSubset
         public BibLevel bibLevel { get; set; }
         public string catalogDate { get; set; }
         public Country country { get; set; }
+
+        public int publishYear { get; set; }
     }
 }

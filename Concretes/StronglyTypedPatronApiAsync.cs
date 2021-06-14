@@ -149,6 +149,18 @@ namespace SierraCSharpRestClient.Concretes
         }
 
 
+        public async Task<BaseResponse> PostHoldRequest(int id, Reservation body)
+        {
+
+            return JsonConvert.DeserializeObject<BaseResponse>(
+                await _patron.PostHoldRequest(id, JsonConvert.SerializeObject(body)));
+        }
+
+
+
+
+
+
         #endregion
 
         #region helpers
@@ -165,6 +177,9 @@ namespace SierraCSharpRestClient.Concretes
         {
             return $"id,patron,item,dueDate,numberOfRenewals,outDate,recallDate,callNumber,barcode";
         }
+
+
+
 
         #endregion
     }

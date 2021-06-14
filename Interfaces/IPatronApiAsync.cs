@@ -75,5 +75,11 @@ namespace SierraCSharpRestClient.Interfaces
         /// <param name="recordId"></param>
         /// <returns></returns>
         Task<string> Fines(int recordId);
+
+
+        /// <summary>
+        /// POST /v6/patrons/{id}/holds/requests
+        /// </summary>
+        Task<string> PostHoldRequest(int id, string body);
     }
 }

@@ -195,6 +195,11 @@ namespace SierraCSharpRestClient.Concretes
             return response.Content;
         }
 
+        public string PostHoldRequest(int id, string body)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
 

@@ -76,5 +76,7 @@ namespace SierraCSharpRestClient.Interfaces
         /// <param name="fields"></param>
         /// <returns></returns>
         string GetCheckouts(int id, string fields);
+
+
     }
 }

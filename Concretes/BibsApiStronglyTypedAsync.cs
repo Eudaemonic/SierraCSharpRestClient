@@ -32,7 +32,25 @@ namespace SierraCSharpRestClient.Concretes
                 return result;
             }
 
-            public async Task<BibQuery> Query(string jsonQuery,  int limit = 20, int offset = 0)
+            public async Task<BibSearchModel> Search(Indexes index, string query, string[] fields = null, int limit = 20, int offset = 0)
+            {
+
+
+                var result = JsonConvert.DeserializeObject<BibSearchModel>(await _bibsApi.Search(index, query, fields, limit, offset));
+
+                return result;
+            }
+
+        public async Task<BibSearchModelWithItems> SearchWithItems(Indexes index, string query, string[] fields = null, int limit = 20, int offset = 0)
+            {
+
+
+                var result = JsonConvert.DeserializeObject<BibSearchModelWithItems>(await _bibsApi.Search(index, query, fields, limit, offset));
+
+                return result;
+            }
+
+        public async Task<BibQuery> Query(string jsonQuery,  int limit = 20, int offset = 0)
             {
 
                 var result = JsonConvert.DeserializeObject<BibQuery>(await _bibsApi.Query(jsonQuery, limit, offset));
