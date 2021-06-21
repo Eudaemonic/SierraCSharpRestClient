@@ -115,6 +115,16 @@ namespace SierraCSharpRestClient.Concretes
             return request;
         }
 
+
+        public RestRequest Execute(string url)
+        { 
+            var request = new RestRequest(url);
+
+            request.AddHeader("Authorization", "bearer " + _accessToken);
+
+            return request;
+        }
+
     }
 
  

@@ -1,9 +1,10 @@
 ﻿using System;
 using SierraCSharpRestClient.Interfaces;
+using SierraCSharpRestClient.Models.Items;
 
 namespace SierraCSharpRestClient.Models.PatronSubset
 {
-    public partial class CheckOut : ICheckout
+    public partial class CheckOutWithItem 
     {
         private string _id;
         public string id
@@ -11,10 +12,10 @@ namespace SierraCSharpRestClient.Models.PatronSubset
             get => _id;
             set => _id = !string.IsNullOrEmpty(value) ? value.Remove(0, value.LastIndexOf('/') + 1) : value;
         }
-       
+
 
         public string patron { get; set; }
-        public virtual string item { get; set; }
+        public Item item { get; set; }
         public DateTime dueDate { get; set; }
         public int numberOfRenewals { get; set; }
         public DateTime outDate { get; set; }

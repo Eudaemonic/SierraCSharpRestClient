@@ -11,7 +11,7 @@ namespace SierraCSharpRestClient.Concretes
 {
     public class StronglyTypedPatronApiAsync : IStronglyTypedPatronApiAsync
     {
-        private readonly PatronApiAsync _patron;
+        private readonly IPatronApiAsync _patron;
 
 
         public StronglyTypedPatronApiAsync(ISierraRestClient sierraRestClient)
@@ -104,12 +104,24 @@ namespace SierraCSharpRestClient.Concretes
 
             return JsonConvert.DeserializeObject<CheckOuts>(await _patron.GetCheckouts(id, fields));
         }
+        public async Task<CheckOutsWithItem> GetCheckoutsWithItem(int id, string fields, string expand)
+        {
+            if (fields == null) fields = GetCheckOutFields();
 
+            return JsonConvert.DeserializeObject<CheckOutsWithItem>(await _patron.GetCheckouts(id, null, "item"));
+        }
         public async Task<CheckOut> GetCheckout(int id, string fields)
         {
             if (fields == null) fields = GetCheckOutFields();
 
-            return JsonConvert.DeserializeObject<CheckOut>(await _patron.GetCheckout(id, fields));
+            return JsonConvert.DeserializeObject<CheckOut>(await _patron.GetCheckouts(id, fields));
+        }
+
+        public async Task<CheckOutWithItem> GetCheckout(int id, string fields, string expand)
+        {
+            if (fields == null) fields = GetCheckOutFields();
+
+            return JsonConvert.DeserializeObject<CheckOutWithItem>(await _patron.GetCheckouts(id, null,"item"));
         }
 
 

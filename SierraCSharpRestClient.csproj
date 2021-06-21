@@ -99,6 +99,8 @@
     <Compile Include="Models\Items\IItem.cs" />
     <Compile Include="Models\Items\Item.cs" />
     <Compile Include="Models\Patron.cs" />
+    <Compile Include="Models\PatronSubset\CheckOutsWithItem.cs" />
+    <Compile Include="Models\PatronSubset\CheckOutWithItem.cs" />
     <Compile Include="Models\PatronSubset\ErrorCode.cs" />
     <Compile Include="Models\PatronSubset\Hold.cs" />
     <Compile Include="Models\PatronSubset\PatronMetaData.cs" />

@@ -199,7 +199,33 @@ namespace SierraCSharpRestClient.Concretes
             return response.Content;
         }
 
-       
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id">the patron record ID</param>
+        /// <param name="fields">	a comma-delimited list of fields to retrieve</param>
+        /// <param name="expand">a comma-delimited list of fields with urls to expand</param>
+        /// <returns></returns>
+        public async Task<string> GetCheckouts(int id, string fields, string expand)
+        {
+
+            var request = _sierraRestClient.Execute(Branch.patrons, $"/{id}/checkouts", Method.GET);
+
+            if (!string.IsNullOrWhiteSpace(fields))
+            {
+                request.AddQueryParameter("fields", fields);
+            }
+            if (!string.IsNullOrWhiteSpace(expand))
+            {
+                request.AddQueryParameter("expand", expand);
+            }
+            
+            IRestResponse response = await _sierraRestClient.Client.ExecuteGetTaskAsync(request);
+
+            return response.Content;
+        }
+
+
 
         /// <summary>
         /// 
@@ -212,7 +238,10 @@ namespace SierraCSharpRestClient.Concretes
 
             var request = _sierraRestClient.Execute(Branch.patrons, $"/checkouts/{id}", Method.GET);
 
-            request.AddQueryParameter("fields", fields);
+            if (!string.IsNullOrWhiteSpace(fields))
+            {
+                request.AddQueryParameter("fields", fields);
+            }
 
             IRestResponse response = await _sierraRestClient.Client.ExecuteTaskAsync(request);
 
@@ -231,7 +260,10 @@ namespace SierraCSharpRestClient.Concretes
 
             var request = _sierraRestClient.Execute(Branch.patrons, $"/checkouts/{id}/renewal", Method.POST);
 
-            request.AddQueryParameter("fields", fields);
+            if (!string.IsNullOrWhiteSpace(fields))
+            {
+                request.AddQueryParameter("fields", fields);
+            }
 
             IRestResponse response = await _sierraRestClient.Client.ExecuteTaskAsync(request);
 
@@ -286,10 +318,10 @@ namespace SierraCSharpRestClient.Concretes
         }
 
 
-        public async Task<string> Holds(int recordId)
+        public async Task<string> Holds(int patronId)
         {
 
-            var request = _sierraRestClient.Execute(Branch.patrons, $"/{recordId}/holds", Method.GET);
+            var request = _sierraRestClient.Execute(Branch.patrons, $"/{patronId}/holds", Method.GET);
          
 
             var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
@@ -303,6 +335,7 @@ namespace SierraCSharpRestClient.Concretes
 
             var request = _sierraRestClient.Execute(Branch.patrons, $"/{id}/holds/requests", Method.POST);
 
+            request.AddParameter("text/json", body, ParameterType.RequestBody);
 
             var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
 

@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using SierraCSharpRestClient.Enums;
 using SierraCSharpRestClient.Models;
+using SierraCSharpRestClient.Models.FinesSet;
 
 namespace SierraCSharpRestClient.Interfaces
 {
@@ -81,5 +82,17 @@ namespace SierraCSharpRestClient.Interfaces
         /// POST /v6/patrons/{id}/holds/requests
         /// </summary>
         Task<string> PostHoldRequest(int id, string body);
+
+
+        Task<string> GetCheckouts(int id, string fields, string expand);
+
+        Task<string> Renew(int id, string fields);
+
+
+        Task<string> Holds(int patronId);
+
+        Task<bool> Payment(int recordId, Payments payments);
+
+        Task<bool> Charge(int recordId, int amount, string reason, string location);
     }
 }

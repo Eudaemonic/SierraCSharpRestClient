@@ -37,5 +37,16 @@ namespace SierraCSharpRestClient.Interfaces
         /// The access token is only valid for 60 minutes 
         /// </summary>
         string AccessToken { get; }
+
+        /// <summary>
+        /// Accepts a raw URLand hits the api
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        RestRequest Execute(string url);
+
+
     }
+
+
 }

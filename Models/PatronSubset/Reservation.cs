@@ -17,7 +17,7 @@ namespace SierraCSharpRestClient.Models.PatronSubset
         [JsonProperty("neededBy", NullValueHandling = NullValueHandling.Ignore)]
         public string NeededBy { get; set; }
 
-        [JsonProperty("numberOfCopies", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("numberOfCopies", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public int NumberOfCopies { get; set; }
 
         [JsonProperty("note", NullValueHandling = NullValueHandling.Ignore)]

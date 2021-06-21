@@ -58,6 +58,8 @@ namespace SierraCSharpRestClient.Interfaces
         /// <returns></returns>
         Task<CheckOuts> GetCheckouts(int id, string fields = null);
 
+        Task<CheckOutsWithItem> GetCheckoutsWithItem(int id, string fields, string expand);
+
         /// <summary>
         /// 
         /// </summary>
@@ -65,6 +67,7 @@ namespace SierraCSharpRestClient.Interfaces
         /// <param name="fields"></param>
         /// <returns></returns>
         Task<CheckOut> GetCheckout(int id, string fields = null);
+        Task<CheckOutWithItem> GetCheckout(int id, string fields, string expand);
 
         Task<CheckOut> Renew(int id, string fields);
         
@@ -83,6 +86,9 @@ namespace SierraCSharpRestClient.Interfaces
         Task<Holds> Holds(int recordId);
 
         Task<bool> Payment(int recordId, Payments payments);
+
+
+        Task<BaseResponse> PostHoldRequest(int id, Reservation body);
 
 
 
