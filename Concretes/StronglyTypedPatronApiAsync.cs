@@ -154,6 +154,7 @@ namespace SierraCSharpRestClient.Concretes
             return await _patron.Payment(recordId, payments);
         }
 
+        #region Holds
 
         public async Task<Holds> Holds(int recordId)
         {
@@ -167,6 +168,19 @@ namespace SierraCSharpRestClient.Concretes
             return JsonConvert.DeserializeObject<BaseResponse>(
                 await _patron.PostHoldRequest(id, JsonConvert.SerializeObject(body)));
         }
+
+
+
+        public async Task<BaseResponse> DeleteHold (int id)
+        {
+
+            return JsonConvert.DeserializeObject<BaseResponse>(
+                await _patron.DeleteHold(id));
+        }
+
+
+        #endregion
+
 
 
 

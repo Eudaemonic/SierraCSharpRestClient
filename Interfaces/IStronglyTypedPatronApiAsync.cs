@@ -85,10 +85,13 @@ namespace SierraCSharpRestClient.Interfaces
         Task<Fines> Fines(int recordId);
         Task<Holds> Holds(int recordId);
 
+        Task<BaseResponse> DeleteHold(int id);
+        Task<BaseResponse> PostHoldRequest(int id, Reservation body);
+
         Task<bool> Payment(int recordId, Payments payments);
 
 
-        Task<BaseResponse> PostHoldRequest(int id, Reservation body);
+  
 
 
 

@@ -317,12 +317,13 @@ namespace SierraCSharpRestClient.Concretes
             return result.IsSuccessful;
         }
 
+        #region Holds
 
         public async Task<string> Holds(int patronId)
         {
 
             var request = _sierraRestClient.Execute(Branch.patrons, $"/{patronId}/holds", Method.GET);
-         
+
 
             var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
 
@@ -341,6 +342,21 @@ namespace SierraCSharpRestClient.Concretes
 
             return result.Content;
         }
+
+
+        public async Task<string> DeleteHold(int id)
+        {
+
+            var request = _sierraRestClient.Execute(Branch.patrons, $"/holds/{id}", Method.DELETE);
+
+            var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
+
+            return result.Content;
+        }
+
+        #endregion
+
+
 
 
         #endregion
