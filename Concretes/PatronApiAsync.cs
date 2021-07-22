@@ -352,7 +352,35 @@ namespace SierraCSharpRestClient.Concretes
             var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
 
             return result.Content;
+        }    
+        
+        /// <summary>
+        /// Returns a list of Checkout history
+        /// </summary>
+        /// <param name="id">Patron Id</param>
+        /// <returns></returns>
+        public async Task<string> CheckoutHistory(int id, int offset = 0, int limit = 20, string[] fields = null, string sortField = "outDate", string sortOrder = "asc")
+        {
+
+            var request = _sierraRestClient.Execute(Branch.patrons, $"/{id}/checkouts/history", Method.GET);
+
+            //Parameters
+            if(fields != null)
+            {
+                request.AddQueryParameter("fields", string.Join(",", fields));
+            }
+            request.AddQueryParameter("offset", offset.ToString()); 
+            request.AddQueryParameter("limit", limit.ToString());
+            request.AddQueryParameter("sortField",  sortField);
+            request.AddQueryParameter("sortOrder", sortOrder);
+
+            var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
+
+            return result.Content;
         }
+
+
+
 
         #endregion
 

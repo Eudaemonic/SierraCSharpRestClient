@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concretes\FilesApiAsync.cs" />
     <Compile Include="Concretes\FundsApiAsync.cs" />
+    <Compile Include="Interfaces\IFilesApiAsync.cs" />
     <Compile Include="Interfaces\IVendorApiAsync.cs" />
     <Compile Include="Concretes\VendorApiAsync.cs" />
     <Compile Include="Helpers\DateHelpers.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Extensions\EnumExtension.cs" />
     <Compile Include="Extensions\ExtensionsString.cs" />
     <Compile Include="Interfaces\IPatronApi.cs" />
+    <Compile Include="Models\BaseGenericEnumerator.cs" />
     <Compile Include="Models\BaseEnumerator.cs" />
     <Compile Include="Models\BaseJsonQuery.cs" />
     <Compile Include="Models\BaseResponse.cs" />
@@ -89,6 +92,7 @@
     <Compile Include="Models\BibSubset\BibSearchModel.cs" />
     <Compile Include="Models\BibSubset\BibsModel.cs" />
     <Compile Include="Models\BibSubset\SimpleBib.cs" />
+    <Compile Include="Models\CheckoutHistory\CheckoutHistory.cs" />
     <Compile Include="Models\FinesSet\Fine.cs" />
     <Compile Include="Models\FinesSet\Fines.cs" />
     <Compile Include="Models\FinesSet\Payment.cs" />

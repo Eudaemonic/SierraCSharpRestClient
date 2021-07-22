@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using SierraCSharpRestClient.Enums;
 using SierraCSharpRestClient.Interfaces;
 using SierraCSharpRestClient.Models;
+using SierraCSharpRestClient.Models.CheckoutHistory;
 using SierraCSharpRestClient.Models.FinesSet;
 using SierraCSharpRestClient.Models.PatronSubset;
 
@@ -176,6 +177,15 @@ namespace SierraCSharpRestClient.Concretes
 
             return JsonConvert.DeserializeObject<BaseResponse>(
                 await _patron.DeleteHold(id));
+        }
+
+
+        public async Task<BaseGenericEnumerator<CheckoutHistory>> CheckoutHistory(int id, int offset = 0, int limit = 20, string[] fields = null,
+            string sortField = "outDate", string sortOrder = "asc")
+        {
+
+            return JsonConvert.DeserializeObject<BaseGenericEnumerator<CheckoutHistory>>(
+                await _patron.CheckoutHistory(id, offset, limit, fields, sortField, sortOrder));
         }
 
 

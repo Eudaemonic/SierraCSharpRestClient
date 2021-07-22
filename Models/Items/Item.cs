@@ -29,6 +29,9 @@ namespace SierraCSharpRestClient.Models.Items
         public string barcode { get; set; }
         public string callNumber { get; set; }
 
+        [JsonProperty("holdCount")]
+        public int HoldCount { get; set; }
+
         [JsonProperty("varFields")]
         public VarField[] varFields { get; set; }
     }

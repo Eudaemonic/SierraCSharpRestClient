@@ -14,7 +14,8 @@
             info,
             invoices,
             funds,
-            vendors
+            vendors,
+            files
 
 
         }

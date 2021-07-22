@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using SierraCSharpRestClient.Enums;
 using SierraCSharpRestClient.Models;
+using SierraCSharpRestClient.Models.CheckoutHistory;
 using SierraCSharpRestClient.Models.FinesSet;
 using SierraCSharpRestClient.Models.PatronSubset;
 
@@ -91,8 +92,9 @@ namespace SierraCSharpRestClient.Interfaces
         Task<bool> Payment(int recordId, Payments payments);
 
 
-  
 
+        Task<BaseGenericEnumerator<CheckoutHistory>> CheckoutHistory(int id, int offset = 0, int limit = 20, string[] fields = null,
+            string sortField = "outDate", string sortOrder = "asc");
 
 
 
