@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SierraCSharpRestClient</RootNamespace>
     <AssemblyName>SierraCSharpRestClient</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Concretes\FilesApiAsync.cs" />
     <Compile Include="Concretes\FundsApiAsync.cs" />
+    <Compile Include="Helpers\PatronVarFields.cs" />
     <Compile Include="Interfaces\IFilesApiAsync.cs" />
     <Compile Include="Interfaces\IVendorApiAsync.cs" />
     <Compile Include="Concretes\VendorApiAsync.cs" />
