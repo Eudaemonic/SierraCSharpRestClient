@@ -97,6 +97,11 @@ namespace SierraCSharpRestClient.Interfaces
 
         Task<string> CheckoutHistory(int id, int offset = 0, int limit = 20, string[] fields = null,
             string sortField = "outDate", string sortOrder = "asc");
+
+        Task<string> CheckoutHistoryActivation(int id, string body);
+
+        Task<string> CheckoutHistoryActivationStatus(int id);
+
         Task<string> DeleteHold(int id);
     }
 }

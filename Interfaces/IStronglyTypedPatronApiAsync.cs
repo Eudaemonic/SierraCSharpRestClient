@@ -96,6 +96,9 @@ namespace SierraCSharpRestClient.Interfaces
         Task<BaseGenericEnumerator<CheckoutHistory>> CheckoutHistory(int id, int offset = 0, int limit = 20, string[] fields = null,
             string sortField = "outDate", string sortOrder = "asc");
 
+        Task<BaseResponse> CheckoutHistoryActivation(int id, ReadingHistoryActivationModel body);
+
+        Task<ReadingHistoryActivationModel> CheckoutHistoryActivationStatus(int id);
 
 
     }

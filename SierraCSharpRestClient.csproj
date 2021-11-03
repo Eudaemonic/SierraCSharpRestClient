@@ -119,6 +119,7 @@
     <Compile Include="Concretes\SierraRestClient.cs" />
     <Compile Include="Models\PatronSubset\CheckOut.cs" />
     <Compile Include="Models\PatronSubset\CheckOuts.cs" />
+    <Compile Include="Models\PatronSubset\ReadingHistoryActivationModel.cs" />
     <Compile Include="Models\PatronSubset\Reservation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Concretes\SierraRestRequest.cs" />

@@ -9,6 +9,7 @@ using SierraCSharpRestClient.Enums;
 using SierraCSharpRestClient.Interfaces;
 using SierraCSharpRestClient.Models;
 using SierraCSharpRestClient.Models.FinesSet;
+using SierraCSharpRestClient.Models.PatronSubset;
 
 namespace SierraCSharpRestClient.Concretes
 {
@@ -379,6 +380,27 @@ namespace SierraCSharpRestClient.Concretes
             return result.Content;
         }
 
+        public async Task<string> CheckoutHistoryActivation(int id, string body)
+        {
+
+            var request = _sierraRestClient.Execute(Branch.patrons, $"/{id}/checkouts/history/activationStatus", Method.POST);
+
+            request.AddParameter("text/json", body, ParameterType.RequestBody);
+
+            var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
+
+            return result.Content;
+
+        }
+
+        public async Task<string> CheckoutHistoryActivationStatus(int id)
+        {
+            var request = _sierraRestClient.Execute(Branch.patrons, $"/{id}/checkouts/history/activationStatus", Method.GET);
+
+            var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
+
+            return result.Content;
+        }
 
 
 
@@ -387,12 +409,12 @@ namespace SierraCSharpRestClient.Concretes
 
 
 
-        #endregion
+            #endregion
 
 
-        #region StringHelpers
+            #region StringHelpers
 
-        string GetIdFromLink(string link)
+            string GetIdFromLink(string link)
         {
             return link.Contains("/") ? link.Substring(link.LastIndexOf("/", StringComparison.Ordinal) + 1, 7) : string.Empty;
         }

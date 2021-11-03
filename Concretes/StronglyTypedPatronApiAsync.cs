@@ -188,6 +188,21 @@ namespace SierraCSharpRestClient.Concretes
                 await _patron.CheckoutHistory(id, offset, limit, fields, sortField, sortOrder));
         }
 
+        public async Task<BaseResponse> CheckoutHistoryActivation(int id, ReadingHistoryActivationModel body)
+        {
+
+            return JsonConvert.DeserializeObject<BaseResponse>(
+                await _patron.CheckoutHistoryActivation(id, JsonConvert.SerializeObject(body)));
+        }
+
+        public async Task<ReadingHistoryActivationModel> CheckoutHistoryActivationStatus(int id)
+        {
+
+            return JsonConvert.DeserializeObject<ReadingHistoryActivationModel>(
+                await _patron.CheckoutHistoryActivationStatus(id));
+        }
+
+
 
         #endregion
 

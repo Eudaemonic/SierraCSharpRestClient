@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace SierraCSharpRestClient.Models.BibSubset
 {
@@ -10,6 +11,9 @@ namespace SierraCSharpRestClient.Models.BibSubset
         public string publishYear { get; set; }
         public List<Location> locations { get; set; }
         public List<VarField> varFields { get; set; }
+
+        [JsonProperty("bibLevel")]
+        public BibLevel bibLevel { get; set; }
     }
 
     public class Location
@@ -17,6 +21,7 @@ namespace SierraCSharpRestClient.Models.BibSubset
         public string code { get; set; }
         public string name { get; set; }
     }
+
 
     public class Subfield
     {
