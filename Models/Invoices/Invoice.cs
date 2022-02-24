@@ -54,13 +54,13 @@ namespace SierraCSharpRestClient.Models.Invoices
         public double SubTotal { get; set; }
 
         [JsonProperty("shipping")]
-        public long Shipping { get; set; }
+        public double Shipping { get; set; }
 
         [JsonProperty("tax")]
-        public long Tax { get; set; }
+        public double Tax { get; set; }
 
         [JsonProperty("discountOrService")]
-        public long DiscountOrService { get; set; }
+        public double DiscountOrService { get; set; }
 
         [JsonProperty("grandTotal")]
         public double GrandTotal { get; set; }

@@ -61,6 +61,23 @@ namespace SierraCSharpRestClient.Concretes
 
         }
 
+        public async Task<string> GetBibs(int id, string[] fields = null, string createdDate = null, string updatedDate = null,  int limit = 20, int offset = 0)
+        {
+            if (fields == null || fields.Length == 0)
+            {
+                fields = new[] { "title", "author", "publishYear", "available", "varFields" };
+            }
+            var request = _sierraRestClient.Execute(Branch.bibs, "/" + id, Method.GET);
+
+            request.AddQueryParameter("fields", string.Join(",", fields));
+            // execute the request
+
+            var response = await _sierraRestClient.Client.ExecuteTaskAsync(request);
+
+            return response.Content;
+
+        }
+
 
 
         public async Task<string> GetById( int id, string[] fields = null)

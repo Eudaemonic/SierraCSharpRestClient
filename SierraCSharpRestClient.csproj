@@ -45,6 +45,10 @@
   <ItemGroup>
     <Compile Include="Concretes\FilesApiAsync.cs" />
     <Compile Include="Concretes\FundsApiAsync.cs" />
+    <Compile Include="Concretes\HoldingsApiAsync.cs" />
+    <Compile Include="Concretes\HoldingsApiStronglyTypedAsync.cs" />
+    <Compile Include="Interfaces\IHoldingsApiAsync.cs" />
+    <Compile Include="Interfaces\IHoldingsApiStronglyTypedAsync.cs" />
     <Compile Include="Helpers\PatronVarFields.cs" />
     <Compile Include="Interfaces\IFilesApiAsync.cs" />
     <Compile Include="Interfaces\IVendorApiAsync.cs" />
@@ -99,6 +103,7 @@
     <Compile Include="Models\FinesSet\Fines.cs" />
     <Compile Include="Models\FinesSet\Payment.cs" />
     <Compile Include="Models\FinesSet\Payments.cs" />
+    <Compile Include="Models\Holdings\Holdings.cs" />
     <Compile Include="Models\Invoices\Invoice.cs" />
     <Compile Include="Models\Invoices\LineItem.cs" />
     <Compile Include="Models\Items\ItemsSearchModel.cs" />

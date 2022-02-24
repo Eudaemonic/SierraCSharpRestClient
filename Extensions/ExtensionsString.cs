@@ -12,12 +12,12 @@ namespace SierraCSharpRestClient.Extensions
 
         public static string GetIdFromLink(this string link)
         {
-            return link.Contains('/') ? link.Substring(link.LastIndexOf("/", StringComparison.Ordinal) + 1, 7) : string.Empty;
+            return link.Contains('/') ? link.Substring(link.LastIndexOf("/", StringComparison.Ordinal) + 1) : string.Empty;
         }
 
         public static int GetIdAsIntFromLink(this string link)
         {
-            return Convert.ToInt32(link.Contains('/') ? link.Substring(link.LastIndexOf("/", StringComparison.Ordinal) + 1, 7) : string.Empty);
+            return Convert.ToInt32(link.Contains('/') ? link.Substring( link.LastIndexOf("/", StringComparison.Ordinal) + 1) : string.Empty);
         }
     }
 }

@@ -124,7 +124,7 @@ namespace SierraCSharpRestClient.Concretes
         /// <returns></returns>
         public async Task<string> ListByIds(string[] ids, string fields)
         {
-            var request = _sierraRestClient.Execute(Branch.patrons, null, Method.GET);
+            var request = _sierraRestClient.Execute(Branch.patrons, "", Method.GET);
 
             request.AddQueryParameter("id", string.Join(",", ids));
 

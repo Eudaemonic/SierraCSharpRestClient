@@ -15,7 +15,8 @@
             invoices,
             funds,
             vendors,
-            files
+            files,
+            holdings
 
 
         }

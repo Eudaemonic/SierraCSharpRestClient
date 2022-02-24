@@ -27,7 +27,7 @@ namespace SierraCSharpRestClient.Models.BibSubset
         public string name { get; set; }
     }
 
-    public class SimpleBib
+    public partial class SimpleBib
     {
         public string id { get; set; }
         public DateTime updatedDate { get; set; }

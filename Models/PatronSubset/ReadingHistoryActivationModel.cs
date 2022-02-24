@@ -5,6 +5,6 @@ namespace SierraCSharpRestClient.Models.PatronSubset
     public class ReadingHistoryActivationModel
     {
         [JsonProperty("readingHistoryActivation")]
-        public string ReadingHistoryActivation { get; set; }
+        public bool ReadingHistoryActivation { get; set; }
     }
 }
