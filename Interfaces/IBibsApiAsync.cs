@@ -13,8 +13,9 @@ namespace SierraCSharpRestClient.Interfaces
         /// <param name="query"></param>
         /// <param name="limit"></param>
         /// <param name="offset"></param>
+        /// <param name="ids"></param>
         /// <returns></returns>
-        Task<string> Search(Indexes index,  string query, string[] fields = null, int limit = 20, int offset = 0);
+        Task<string> Search(Indexes index,  string query, string[] fields = null, int limit = 20, int offset = 0, string ids = null);
 
         Task<string> GetById(int id, string[] fields = null);
 

@@ -7,7 +7,6 @@ namespace SierraCSharpRestClient.Helpers
     {
        public static string FormatSierraDateRange( DateTime startDate, DateTime endDate)
        {
-           var x = new DateTime();
            
 
             var sb = new StringBuilder();

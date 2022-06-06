@@ -35,9 +35,10 @@ namespace SierraCSharpRestClient.Concretes
         /// <param name="fields"></param>
         /// <param name="query"></param>
         /// <param name="limit"></param>
-        /// <param name="start"></param>
+        /// <param name="offset"></param>
+        /// <param name="ids">a comma-delimited list of IDs of bibs to retrieve</param>
         /// <returns></returns>
-        public async Task<string> Search(Indexes index, string query, string[] fields = null, int limit = 20, int offset = 0)
+        public async Task<string> Search(Indexes index, string query, string[] fields = null, int limit = 20, int offset = 0, string ids = null)
         {
             if (fields is null)
             {
@@ -48,6 +49,11 @@ namespace SierraCSharpRestClient.Concretes
             if (index != Indexes.none)
             {
                 request.AddQueryParameter("index", index.ToString());
+            }
+
+            if (!string.IsNullOrWhiteSpace(ids))
+            {
+                request.AddQueryParameter("id", ids);
             }
             request.AddQueryParameter("fields", string.Join(",", fields));
             request.AddQueryParameter("text", query.ToLower());
