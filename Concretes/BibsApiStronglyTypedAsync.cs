@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using SierraCSharpRestClient.Enums;
 using SierraCSharpRestClient.Interfaces;
+using SierraCSharpRestClient.Models;
 using SierraCSharpRestClient.Models.BibSubset;
 
 namespace SierraCSharpRestClient.Concretes
@@ -58,7 +59,13 @@ namespace SierraCSharpRestClient.Concretes
                 return result;
             }
 
+        public async Task<BaseGenericEnumerator<SimpleBib>> GetBibs(string ids, string[] fields = null,
+            string createdDate = null, string updatedDate = null, int limit = 20, int offset = 0)
+        {
+            var result = JsonConvert.DeserializeObject<BaseGenericEnumerator<SimpleBib>>(await _bibsApi.GetBibs(ids, fields, createdDate, updatedDate, limit , offset));
 
+            return result;
+        }
     }
     }
 

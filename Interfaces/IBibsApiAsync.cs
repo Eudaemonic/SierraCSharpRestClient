@@ -6,18 +6,20 @@ namespace SierraCSharpRestClient.Interfaces
     public interface IBibsApiAsync
     {
         /// <summary>
-        /// Returns a full patron object with all var fields. 
+        /// Returns a full patron object with all var fields. x
         /// </summary>
         /// <param name="index"></param>
         /// <param name="fields"></param>
         /// <param name="query"></param>
         /// <param name="limit"></param>
         /// <param name="offset"></param>
-        /// <param name="ids"></param>
         /// <returns></returns>
-        Task<string> Search(Indexes index,  string query, string[] fields = null, int limit = 20, int offset = 0, string ids = null);
+        Task<string> Search(Indexes index,  string query, string[] fields = null, int limit = 20, int offset = 0);
 
         Task<string> GetById(int id, string[] fields = null);
+
+        Task<string> GetBibs(string ids, string[] fields = null, string createdDate = null, string updatedDate = null,
+            int limit = 20, int offset = 0);
 
         Task<string> Query(string jsonQuery, int limit = 20, int offset = 0);
 
