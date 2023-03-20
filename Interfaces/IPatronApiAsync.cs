@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using RestSharp;
 using SierraCSharpRestClient.Enums;
 using SierraCSharpRestClient.Models;
 using SierraCSharpRestClient.Models.FinesSet;
@@ -99,6 +100,8 @@ namespace SierraCSharpRestClient.Interfaces
             string sortField = "outDate", string sortOrder = "asc");
 
         Task<string> CheckoutHistoryActivation(int id, string body);
+
+        Task<IRestResponse> CheckoutHistoryActivationChange(int id, string body);
 
         Task<string> CheckoutHistoryActivationStatus(int id);
 

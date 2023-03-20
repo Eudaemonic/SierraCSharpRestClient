@@ -380,7 +380,12 @@ namespace SierraCSharpRestClient.Concretes
             return result.Content;
         }
 
-        public async Task<string> CheckoutHistoryActivation(int id, string body)
+        public Task<string> CheckoutHistoryActivation(int id, string body)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IRestResponse> CheckoutHistoryActivationChange(int id, string body)
         {
 
             var request = _sierraRestClient.Execute(Branch.patrons, $"/{id}/checkouts/history/activationStatus", Method.POST);
@@ -389,7 +394,7 @@ namespace SierraCSharpRestClient.Concretes
 
             var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
 
-            return result.Content;
+            return result;
 
         }
 

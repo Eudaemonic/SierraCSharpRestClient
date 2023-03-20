@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using RestSharp;
 using SierraCSharpRestClient.Enums;
 using SierraCSharpRestClient.Interfaces;
 using SierraCSharpRestClient.Models;
@@ -193,6 +194,11 @@ namespace SierraCSharpRestClient.Concretes
 
             return JsonConvert.DeserializeObject<BaseResponse>(
                 await _patron.CheckoutHistoryActivation(id, JsonConvert.SerializeObject(body)));
+        }
+
+        public async Task<IRestResponse> CheckoutHistoryActivationChange(int id, ReadingHistoryActivationModel body)
+        {
+            return await _patron.CheckoutHistoryActivationChange(id, JsonConvert.SerializeObject(body));
         }
 
         public async Task<ReadingHistoryActivationModel> CheckoutHistoryActivationStatus(int id)

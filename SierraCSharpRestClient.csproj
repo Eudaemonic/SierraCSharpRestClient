@@ -47,6 +47,7 @@
     <Compile Include="Concretes\FundsApiAsync.cs" />
     <Compile Include="Concretes\HoldingsApiAsync.cs" />
     <Compile Include="Concretes\HoldingsApiStronglyTypedAsync.cs" />
+    <Compile Include="Extensions\DateExtensions.cs" />
     <Compile Include="Interfaces\IHoldingsApiAsync.cs" />
     <Compile Include="Interfaces\IHoldingsApiStronglyTypedAsync.cs" />
     <Compile Include="Helpers\PatronVarFields.cs" />
