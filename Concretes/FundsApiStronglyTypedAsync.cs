@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SierraCSharpRestClient.Concretes
 {
-    public class FundsApiAsync : IFundsApiAsync
+    public class FundsApiStronglyTypedAsync : IFundsApiAsync
     {
         #region Initialiser
 
@@ -22,19 +22,19 @@ namespace SierraCSharpRestClient.Concretes
 
         #region Methods
 
-
+       
 
         public async Task<string> Get(string login, string code = null, string[] fields = null, string[] fundType = null)
         {
 
             var request = _sierraRestClient.Execute(Branch.funds, null, Method.GET);
 
-
+            
             request.AddQueryParameter("login", login.Trim());
 
-
+            
             if (code != null) request.AddQueryParameter("code", code.Trim());
-
+            
 
             if (fields != null) request.AddQueryParameter("fields", string.Join(",", fields));
 
@@ -49,9 +49,10 @@ namespace SierraCSharpRestClient.Concretes
         }
 
 
+
         #endregion
 
-    }
+}
 
 
 
