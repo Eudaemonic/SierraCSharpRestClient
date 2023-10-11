@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SierraCSharpRestClient.Models.Fund;
 using System.Threading.Tasks;
-using SierraCSharpRestClient.Models.Fund;
 
 namespace SierraCSharpRestClient.Interfaces
 {

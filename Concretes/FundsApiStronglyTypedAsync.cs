@@ -1,19 +1,18 @@
 ﻿using RestSharp;
-using SierraCSharpRestClient.Enums;
-using SierraCSharpRestClient.Helpers;
 using SierraCSharpRestClient.Interfaces;
-using System;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using SierraCSharpRestClient.Models.Fund;
 
 namespace SierraCSharpRestClient.Concretes
 {
-    public class FundsApiStronglyTypedAsync : IFundsApiAsync
+    public class FundsApiStronglyTypedAsync : IFundsApiStronglyTypedAsync
     {
         #region Initialiser
 
         private readonly ISierraRestClient _sierraRestClient;
 
-        public FundsApiAsync(ISierraRestClient sierraRestClient)
+        public FundsApiStronglyTypedAsync(ISierraRestClient sierraRestClient)
         {
             _sierraRestClient = sierraRestClient;
         }
@@ -24,7 +23,7 @@ namespace SierraCSharpRestClient.Concretes
 
        
 
-        public async Task<string> Get(string login, string code = null, string[] fields = null, string[] fundType = null)
+        public async Task<Funds> Get(string login, string code = null, string[] fields = null, string[] fundType = null)
         {
 
             var request = _sierraRestClient.Execute(Branch.funds, null, Method.GET);
@@ -43,7 +42,7 @@ namespace SierraCSharpRestClient.Concretes
             // execute the request
             var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
 
-            return result.Content;
+            return JsonConvert.DeserializeObject<Funds>(result.Content);
 
 
         }

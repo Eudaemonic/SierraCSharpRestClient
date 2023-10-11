@@ -1,8 +1,5 @@
 ﻿using RestSharp;
-using SierraCSharpRestClient.Enums;
-using SierraCSharpRestClient.Helpers;
 using SierraCSharpRestClient.Interfaces;
-using System;
 using System.Threading.Tasks;
 
 namespace SierraCSharpRestClient.Concretes
