@@ -75,6 +75,8 @@ namespace SierraCSharpRestClient.Models
         public int pcode4 { get; set; }
     }
 
+
+    [DisplayName("varField")]
     public class VarField
     {
 

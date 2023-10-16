@@ -132,12 +132,26 @@
     <Compile Include="Models\PatronSubset\CheckOuts.cs" />
     <Compile Include="Models\PatronSubset\ReadingHistoryActivationModel.cs" />
     <Compile Include="Models\PatronSubset\Reservation.cs" />
+    <Compile Include="Models\Vendor\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Concretes\SierraRestRequest.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\RestSharp.dll" />
+    <Content Include="bin\Debug\SierraCSharpRestClient.dll" />
+    <Content Include="bin\Debug\SierraCSharpRestClient.pdb" />
+    <Content Include="bin\Debug\System.ValueTuple.dll" />
+    <Content Include="bin\Release\Newtonsoft.Json.dll" />
+    <Content Include="bin\Release\RestSharp.dll" />
+    <Content Include="bin\Release\SierraCSharpRestClient.dll" />
+    <Content Include="bin\Release\SierraCSharpRestClient.pdb" />
+    <Content Include="bin\Release\System.ValueTuple.dll" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="bin\Debug\SierraCSharpRestClient.dll.config" />
+    <None Include="bin\Release\SierraCSharpRestClient.dll.config" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json">
@@ -150,6 +164,7 @@
       <Version>4.5.0</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

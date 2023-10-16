@@ -53,7 +53,7 @@ namespace SierraCSharpRestClient.Concretes
         public async Task<string> Get(string login, string id, string[] fields = null)
         {
 
-            var request = _sierraRestClient.Execute(Branch.invoices, $"/{id}", Method.GET);
+            var request = _sierraRestClient.Execute(Branch.vendors, $"/{id}", Method.GET);
 
             request.AddQueryParameter("login", login.Trim());
 
@@ -68,10 +68,28 @@ namespace SierraCSharpRestClient.Concretes
         }
 
 
+        public async Task<string> GetByCode(string login, string code, string[] fields = null)
+        {
+
+            var request = _sierraRestClient.Execute(Branch.vendors, $"/", Method.GET);
+
+            request.AddQueryParameter("login", login.Trim());
+            request.AddQueryParameter("code", code.Trim());
+
+            if (fields != null) request.AddQueryParameter("fields", string.Join(",", fields));
+
+            // execute the request
+            var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
+
+            return result.Content;
+
+
+        }
+
 
         #endregion
 
-}
+    }
 
 
 

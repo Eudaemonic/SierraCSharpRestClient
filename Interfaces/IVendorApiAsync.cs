@@ -10,5 +10,6 @@ namespace SierraCSharpRestClient.Interfaces
             int offset = 0);
 
          Task<string> Get(string login, string id, string[] fields = null);
+         Task<string> GetByCode(string login, string code, string[] fields = null);
     }
 }

@@ -26,7 +26,7 @@ namespace SierraCSharpRestClient.Concretes
         public async Task<Funds> Get(string login, string code = null, string[] fields = null, string[] fundType = null)
         {
 
-            var request = _sierraRestClient.Execute(Branch.funds, null, Method.GET);
+            var request = _sierraRestClient.Execute(Branch.funds, "/", Method.GET);
 
             
             request.AddQueryParameter("login", login.Trim());
