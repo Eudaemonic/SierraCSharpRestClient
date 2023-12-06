@@ -38,7 +38,7 @@ namespace SierraCSharpRestClient.Concretes
 
             if (fields != null) request.AddQueryParameter("fields", string.Join(",", fields));
 
-            if (!string.IsNullOrWhiteSpace(status)) request.AddQueryParameter("status", status);
+            if (!string.IsNullOrWhiteSpace(status)) request.AddQueryParameter("statusCode", status);
 
             if(Ids != null) request.AddQueryParameter("id", string.Join(",", Ids));
 
@@ -118,9 +118,9 @@ namespace SierraCSharpRestClient.Concretes
             if(endDate != null)
             {
                 sb.Append("[");
-                sb.Append(startDate.ToString("s"));
+                sb.Append(startDate.ToString("yyyy-MM-dd"));
                 sb.Append(",");
-                sb.Append(endDate.ToString("s"));
+                sb.Append(endDate.ToString("yyyy-MM-dd"));
                 sb.Append("]");
                 return sb.ToString();
             }
