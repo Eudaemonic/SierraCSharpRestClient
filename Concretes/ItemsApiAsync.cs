@@ -1,7 +1,9 @@
 ﻿    using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using RestSharp;
 using SierraCSharpRestClient.Interfaces;
+using SierraCSharpRestClient.Models.PatronSubset;
 
 namespace SierraCSharpRestClient.Concretes
 {
@@ -72,6 +74,25 @@ namespace SierraCSharpRestClient.Concretes
             return x.Content;
         }
 
+        public async Task<IRestResponse> CheckInByBarcode(string barcode, string username = null, string statgroup = null)
+        {
+            var request = _sierraRestClient.Execute(Branch.items, $"/checkouts/{barcode}", Method.DELETE);
+
+            if (!string.IsNullOrWhiteSpace(username))
+            {
+                request.AddQueryParameter("username", username);
+            }
+            if (!string.IsNullOrWhiteSpace(statgroup))
+            {
+                request.AddQueryParameter("statgroup", statgroup);
+            }
+            
+            var x = await _sierraRestClient.Client.ExecuteAsync(request);
+
+            return x;
+
+
+        }
 
         #endregion
 

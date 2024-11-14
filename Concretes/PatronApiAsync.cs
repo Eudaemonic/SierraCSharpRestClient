@@ -234,7 +234,7 @@ namespace SierraCSharpRestClient.Concretes
         /// <param name="id"></param>
         /// <param name="fields"></param>
         /// <returns></returns>
-        public async Task<string> GetCheckout(int id, string fields)
+        public async Task<string> GetCheckout(int id, string fields, string expand = "")
         {
 
             var request = _sierraRestClient.Execute(Branch.patrons, $"/checkouts/{id}", Method.GET);

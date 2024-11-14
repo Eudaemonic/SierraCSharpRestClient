@@ -60,7 +60,7 @@ namespace SierraCSharpRestClient.Interfaces
         /// <returns></returns>
         Task<CheckOuts> GetCheckouts(int id, string fields = null);
 
-        Task<CheckOutsWithItem> GetCheckoutsWithItem(int id, string fields, string expand);
+        Task<CheckOutsWithItem> GetCheckoutsWithItem(int id, string fields = null, string expand = "item");
 
         /// <summary>
         /// 
@@ -69,7 +69,7 @@ namespace SierraCSharpRestClient.Interfaces
         /// <param name="fields"></param>
         /// <returns></returns>
         Task<CheckOut> GetCheckout(int id, string fields = null);
-        Task<CheckOutWithItem> GetCheckout(int id, string fields, string expand);
+        Task<CheckOutWithItem> GetCheckoutWithItem(int id, string fields = null, string expand = "item");
 
         Task<CheckOut> Renew(int id, string fields);
         

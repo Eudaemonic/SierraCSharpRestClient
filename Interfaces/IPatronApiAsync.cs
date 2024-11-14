@@ -87,6 +87,9 @@ namespace SierraCSharpRestClient.Interfaces
 
         Task<string> GetCheckouts(int id, string fields, string expand);
 
+        Task<string> GetCheckout(int id, string fields, string expand);
+
+
         Task<string> Renew(int id, string fields);
 
 

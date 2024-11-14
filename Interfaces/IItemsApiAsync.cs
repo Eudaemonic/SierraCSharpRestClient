@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using RestSharp;
+using System.Threading.Tasks;
 
 namespace SierraCSharpRestClient.Interfaces
 {
@@ -11,5 +12,7 @@ namespace SierraCSharpRestClient.Interfaces
 
 
         Task<string> Query(string json, int offset, int limit);
+
+        Task<IRestResponse> CheckInByBarcode(string barcode, string username = null, string statgroup = null);
     }
 }

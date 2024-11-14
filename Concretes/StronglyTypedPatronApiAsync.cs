@@ -116,14 +116,14 @@ namespace SierraCSharpRestClient.Concretes
         {
             if (fields == null) fields = GetCheckOutFields();
 
-            return JsonConvert.DeserializeObject<CheckOut>(await _patron.GetCheckouts(id, fields));
+            return JsonConvert.DeserializeObject<CheckOut>(await _patron.GetCheckout(id, fields, ""));
         }
 
-        public async Task<CheckOutWithItem> GetCheckout(int id, string fields, string expand)
+        public async Task<CheckOutWithItem> GetCheckoutWithItem(int id, string fields, string expand)
         {
             if (fields == null) fields = GetCheckOutFields();
 
-            return JsonConvert.DeserializeObject<CheckOutWithItem>(await _patron.GetCheckouts(id, null,"item"));
+            return JsonConvert.DeserializeObject<CheckOutWithItem>(await _patron.GetCheckout(id, null,"item"));
         }
 
 
