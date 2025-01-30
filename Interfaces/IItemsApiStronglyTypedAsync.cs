@@ -12,5 +12,8 @@ namespace SierraCSharpRestClient.Interfaces
         Task<Item> Get(string id,  string[] fields = null);
 
         Task<BaseEnumerator> Query(string json, int offset, int limit);
+
+        Task<SierraResponseMessage> CheckInByBarcode(string barcode, string username = null,
+            string statgroup = null);
     }
 }

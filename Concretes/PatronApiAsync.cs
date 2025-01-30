@@ -244,6 +244,11 @@ namespace SierraCSharpRestClient.Concretes
                 request.AddQueryParameter("fields", fields);
             }
 
+            if (!string.IsNullOrWhiteSpace(expand))
+            {
+                request.AddQueryParameter("expand", expand);
+            }
+
             IRestResponse response = await _sierraRestClient.Client.ExecuteTaskAsync(request);
 
             return response.Content;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
@@ -62,10 +63,19 @@ namespace SierraCSharpRestClient.Concretes
             request.AddQueryParameter("limit", limit.ToString());
             request.AddQueryParameter("offset", offset.ToString());
 
-            // execute the request
-            var result =  await _sierraRestClient.Client.ExecuteTaskAsync(request);
+            try
+            {
 
-            return result.Content;
+
+                // execute the request
+                var result = await _sierraRestClient.Client.ExecuteAsync(request);
+
+                return result.Content;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
 
         }
 

@@ -74,7 +74,7 @@ namespace SierraCSharpRestClient.Concretes
             return x.Content;
         }
 
-        public async Task<IRestResponse> CheckInByBarcode(string barcode, string username = null, string statgroup = null)
+        public async Task<string> CheckInByBarcode(string barcode, string username = null, string statgroup = null)
         {
             var request = _sierraRestClient.Execute(Branch.items, $"/checkouts/{barcode}", Method.DELETE);
 
@@ -89,7 +89,7 @@ namespace SierraCSharpRestClient.Concretes
             
             var x = await _sierraRestClient.Client.ExecuteAsync(request);
 
-            return x;
+            return x.Content;
 
 
         }

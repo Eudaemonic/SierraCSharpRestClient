@@ -115,6 +115,7 @@
     <Compile Include="Models\Items\ItemsSearchModel.cs" />
     <Compile Include="Models\Items\IItem.cs" />
     <Compile Include="Models\Items\Item.cs" />
+    <Compile Include="Models\Items\SierraResponseMessage.cs" />
     <Compile Include="Models\Patron.cs" />
     <Compile Include="Models\PatronSubset\CheckOutsWithItem.cs" />
     <Compile Include="Models\PatronSubset\CheckOutWithItem.cs" />
