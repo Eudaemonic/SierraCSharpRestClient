@@ -131,7 +131,7 @@ namespace SierraCSharpRestClient.Concretes
             request.AddQueryParameter("fields", fields);
             // execute the request
 
-            var result = await _sierraRestClient.Client.ExecuteGetTaskAsync(request);
+            var result = await _sierraRestClient.Client.ExecuteGetAsync(request);
 
             return result.Content;
         }
