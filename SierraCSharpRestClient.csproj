@@ -156,7 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>8.0.3</Version>
+      <Version>10.0.1</Version>
     </PackageReference>
     <PackageReference Include="RestSharp">
       <Version>106.15.0</Version>

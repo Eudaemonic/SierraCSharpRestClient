@@ -14,5 +14,8 @@ namespace SierraCSharpRestClient.Interfaces
         Task<string> Query(string json, int offset, int limit);
 
         Task<string> CheckInByBarcode(string barcode, string username = null, string statgroup = null);
+
+
+        Task<IRestResponse> Put(string id, string body);
     }
 }

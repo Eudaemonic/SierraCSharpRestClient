@@ -1,5 +1,6 @@
 ﻿    using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using RestSharp;
 using SierraCSharpRestClient.Interfaces;
@@ -57,6 +58,22 @@ namespace SierraCSharpRestClient.Concretes
             var result = await _sierraRestClient.Client.ExecuteTaskAsync(request);
 
             return result.Content;
+
+
+        }
+
+
+        public async Task<IRestResponse> Put(string id, string body)
+        {
+
+            var request = _sierraRestClient.Execute(Branch.items, $"/{id}", Method.GET);
+
+            request.AddParameter("application/json", body, ParameterType.RequestBody);
+
+            // execute the request
+            var result = await _sierraRestClient.Client.ExecuteAsync(request);
+
+            return result;
 
 
         }
